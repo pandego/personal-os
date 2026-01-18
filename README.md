@@ -35,11 +35,11 @@ claude mcp add --transport http todoist https://ai.todoist.net/mcp
 
 Then launch Claude, run `/mcp`, and authenticate with Todoist.
 
-**Required**: Create a project called **"PersonalOS"** in Todoist with **board view** enabled. Use `/sync-todoist` to sync with local `KANBAN.md`.
+**Required**: Create a project called **"PersonalOS"** in Todoist with **board view** enabled. Use `/process-backlog` to sync with local `KANBAN.md`.
 
 ## Obsidian
 
-Open the repo in Obsidian, as a Vault, and the [Kanban plugin](https://github.com/mgmeyers/obsidian-kanban) to start using it for kanban-style idea management. The `KANBAN.md` file syncs with your Todoist PersonalOS project every time you run `/sync-todoist`.
+Open the repo in Obsidian, as a Vault, and the [Kanban plugin](https://github.com/mgmeyers/obsidian-kanban) to start using it for kanban-style idea management. The `KANBAN.md` file syncs with your Todoist PersonalOS project every time you run `/process-backlog`.
 
 ## Tool-Agnostic Setup
 
