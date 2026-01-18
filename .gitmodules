@@ -1,0 +1,6 @@
+[submodule "_external/anthropic-skills"]
+	path = _external/anthropic-skills
+	url = https://github.com/anthropics/skills.git
+[submodule "_external/obra-superpowers"]
+	path = _external/obra-superpowers
+	url = https://github.com/obra/superpowers.git
