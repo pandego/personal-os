@@ -68,4 +68,4 @@ This allows switching between Claude Code, Windsurf, Cursor, or any other agenti
 
 ## License
 
-Proprietary. All rights reserved.
+MIT License - see LICENSE file for details
