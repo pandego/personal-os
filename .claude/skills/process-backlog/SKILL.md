@@ -1,0 +1,186 @@
+---
+name: process-backlog
+description: Bidirectional sync between KANBAN.md and Todoist PersonalOS project. Processes messy backlog items into clear, actionable tasks. Triggers on requests to sync todoist, process backlog, or when user mentions syncing tasks/ideas.
+---
+
+# Process Backlog
+
+Processes messy backlog items (often dictated, rambling notes) into clear, actionable tasks. Optionally syncs with Todoist.
+
+## Trigger Phrases
+
+- `/process-backlog`
+- "process my backlog"
+- "clean up my backlog"
+- "sync my todoist"
+- "sync my tasks"
+
+## Workflow
+
+### Step 1: Ask About Scope
+
+> "Want me to sync with Todoist too, or just process the local KANBAN.md?"
+>
+> - **Both** — sync from Todoist, process backlog, sync back
+> - **Local only** — just process KANBAN.md backlog
+
+### Step 2: If Syncing with Todoist
+
+#### 2a. Find PersonalOS Project
+
+Use `mcp__todoist__find-projects` to search for "PersonalOS".
+
+**If not found:**
+> "I couldn't find a 'PersonalOS' project in Todoist. Create one with board view and try again."
+
+Stop here.
+
+#### 2b. Get Todoist Sections
+
+Use `mcp__todoist__find-sections` with the project ID.
+
+Expected sections (create if missing with `mcp__todoist__add-sections`):
+- Backlog
+- Ready
+- In Progress
+- Done
+- Abandoned (optional)
+
+#### 2c. Pull Tasks from Todoist
+
+Use `mcp__todoist__find-tasks` to get all tasks from PersonalOS.
+
+For each task in Todoist not in local KANBAN.md:
+- Add to the matching section in KANBAN.md
+
+### Step 3: Process Backlog Items
+
+Read `KANBAN.md` and find all items under `## Backlog`.
+
+For each item:
+
+1. **Understand** what the messy/dictated text is trying to say
+2. **Extract** the core idea or action
+3. **Reformat** into a clear, concise task:
+   - Start with a verb (Create, Fix, Add, Update, Research, etc.)
+   - Keep it to 1-2 sentences max
+   - Remove filler words, repetition, transcription artifacts
+4. **Categorize** if obvious (content idea, repo improvement, business task, etc.)
+
+**Example transformation:**
+
+Before (messy dictation):
+```
+- [ ] - So perhaps I need an inbox that is above everything, so it would be 00 if that makes sense, or use the backlog as the inbox. And then, I don't know, because if you check the inbox there's already board content ideas and then a board for repo backlog. So I think we should have a backlog, that's where we dump anything and then have tasks being created and updated somewhere.
+```
+
+After (processed):
+```
+- [ ] Consolidate inbox structure: use KANBAN.md backlog as single inbox, remove separate content/repo boards:
+    1. Review current inbox locations (KANBAN.md, content ideas board, repo backlog)
+    2. Decide on single source of truth
+    3. Migrate existing items to KANBAN.md backlog
+    4. Remove deprecated boards
+#repo-improvement
+```
+
+**Format notes:**
+- Add relevant tags at the beginning (e.g., `#blog-idea`, `#linkedin-idea`, `#repo-improvement`, `#business-task`)
+- For multi-step tasks, add numbered steps
+
+### Step 4: Move to Ready
+
+After processing each backlog item:
+- Remove from `## Backlog`
+- Add processed version to `## Ready`
+
+### Step 5: If Syncing with Todoist
+
+#### 5a. Push Processed Items
+
+For each item in Ready that's not in Todoist:
+- Use `mcp__todoist__add-tasks` with the Ready section ID
+
+For completed items (in Done):
+- Use `mcp__todoist__complete-tasks`
+
+#### 5b. Update Last Sync
+
+Update the frontmatter in KANBAN.md:
+```yaml
+last-sync: YYYY-MM-DD HH:MM
+```
+
+### Step 6: Show Summary
+
+> "**Backlog processed!**
+>
+> **Processed X items:**
+> - [processed item 1]
+> - [processed item 2]
+>
+> **Ready (Y items):**
+> - [item 1]
+> - [item 2]
+>
+> **In Progress (Z items):**
+> - [item 1]
+>
+> ---
+> Last sync: YYYY-MM-DD HH:MM" *(if synced)*
+
+## KANBAN.md Format
+
+```markdown
+---
+
+kanban-plugin: board
+sync-with: Todoist PersonalOS project
+last-sync: YYYY-MM-DD HH:MM
+
+---
+
+## Backlog
+
+- [ ] Messy dictated item here...
+
+## Ready
+
+- [ ] Processed, clear task
+
+## In Progress
+
+- [ ] Task being worked on
+
+## Done
+
+- [x] Completed task
+
+## Abandoned
+
+- [ ] Task no longer relevant
+
+
+%% kanban:settings
+```
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false]}
+```
+%%
+```
+
+## Processing Guidelines
+
+When reformatting messy items:
+
+1. **Preserve intent** — don't lose the original idea
+2. **Be concise** — 1-2 sentences max
+3. **Start with a verb** — makes it actionable
+4. **Remove noise** — "um", "like", "you know", repetition, transcription errors
+5. **Split if needed** — one messy item might contain multiple tasks
+6. **Ask if unclear** — if you can't understand the intent, ask the user
+
+## Error Handling
+
+- **Todoist MCP not connected**: "Run `/mcp` and connect the Todoist server first"
+- **PersonalOS project missing**: "Create a 'PersonalOS' project in Todoist with board view"
+- **Empty backlog**: "No items in backlog to process!"
