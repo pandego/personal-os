@@ -25,6 +25,9 @@
 2-business/**/01-drafts/
 2-business/**/02-done/
 2-business/**/03-published/
+2-business/**/TEMPLATE_*.md
+2-business/02-clients/
+RESUME.md
 
 # -----------------------------------------------------------------------------
 # Voice Files (personal writing style, not for public repo)
