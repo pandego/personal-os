@@ -124,7 +124,7 @@ Then tell the user:
 > "Setup complete!
 > - ✅ Voice configured (saved to VOICE.md)
 > - ✅ Python environment ready
-> - ✅ Todoist MCP configured (use `/sync-todoist` to sync ideas) ← *only if they set it up*
+> - ✅ Todoist MCP configured (use `/process-backlog` to process and sync backlog items) ← *only if they set it up*
 >
 > **Next step:** Before drafting content, set up your platform voices:
 > 1. Place your best posts in `1-content/01-blog/04-my-top/` (curated, not all)
