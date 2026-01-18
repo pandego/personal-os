@@ -9,7 +9,7 @@ Generate a structured yearly review.
 
 ## Arguments
 
-$ARGUMENTS - Optional: year to review (default: previous year) or transcript/notes
+$ARGUMENTS - year to review (default: previous year) or transcript/notes
 
 ## Steps
 
