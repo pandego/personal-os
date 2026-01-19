@@ -55,6 +55,12 @@ For each task in Todoist not in local KANBAN.md:
 
 ### Step 3: Process Backlog Items
 
+Ensure `KANBAN.md` exists locally before processing:
+
+- If missing: prompt the user — "`KANBAN.md` not found. Create it from `.claude/skills/process-backlog/assets/KANBAN_template.md` now? (yes/no)".
+  - If yes: create `KANBAN.md` from the template and continue.
+  - If no: stop and tell the user to create `KANBAN.md` first.
+
 Read `KANBAN.md` and find all items under `## Backlog`.
 
 For each item:
@@ -129,44 +135,7 @@ last-sync: YYYY-MM-DD HH:MM
 > ---
 > Last sync: YYYY-MM-DD HH:MM" *(if synced)*
 
-## KANBAN.md Format
-
-```markdown
----
-
-kanban-plugin: board
-sync-with: Todoist PersonalOS project
-last-sync: YYYY-MM-DD HH:MM
-
----
-
-## Backlog
-
-- [ ] Messy dictated item here...
-
-## Ready
-
-- [ ] Processed, clear task
-
-## In Progress
-
-- [ ] Task being worked on
-
-## Done
-
-- [x] Completed task
-
-## Abandoned
-
-- [ ] Task no longer relevant
-
-
-%% kanban:settings
-```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false,false]}
-```
-%%
-```
+After showing the summary, ask: "Want to tackle something in Ready now? (yes/no). If yes, which item?" If the user picks one, follow their instructions for that item.
 
 ## Processing Guidelines
 
