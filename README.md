@@ -41,6 +41,32 @@ Then launch Claude, run `/mcp`, and authenticate with Todoist.
 
 Open the repo in Obsidian, as a Vault, and the [Kanban plugin](https://github.com/mgmeyers/obsidian-kanban) to start using it for kanban-style idea management. The `KANBAN.md` file syncs with your Todoist PersonalOS project every time you run `/process-backlog`.
 
+### Locally ignoring tracked files (e.g., `KANBAN.md`)
+
+If you want to keep a tracked file in the repo but ignore your local edits (e.g., personal tweaks to `KANBAN.md`), mark it skip-worktree locally:
+
+```bash
+git update-index --skip-worktree KANBAN.md
+```
+
+Status will now hide changes to that file. To resume tracking later:
+
+```bash
+git update-index --no-skip-worktree KANBAN.md
+```
+
+For a folder (e.g., `Perafolder`), use the same flag against the directory:
+
+```bash
+git update-index --skip-worktree Perafolder/
+```
+
+Re-enable tracking for the folder with:
+
+```bash
+git update-index --no-skip-worktree Perafolder/
+```
+
 ## Tool-Agnostic Setup
 
 This repo uses **symlinks** to remain agnostic to the agentic coding provider. The `.claude/` directory serves as the source of truth for commands, skills, and agent instructions.
