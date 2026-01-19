@@ -26,9 +26,24 @@
 2-business/**/02-done/*.md
 2-business/**/03-published/*.md
 2-business/**/TEMPLATE_*.md
-2-business/02-outbound/**/*.md
-2-business/03-clients/**/*.md
+
+# Outbound: keep folder structure, ignore all contents except .gitkeep
+2-business/02-outbound/**/*
+!2-business/02-outbound/**/.gitkeep
+!2-business/02-outbound/
+!2-business/02-outbound/*/
+
+# Ignore all clients except the template
+2-business/03-clients/
+!2-business/03-clients/_template/
+!2-business/03-clients/_template/**
 RESUME.md
+
+# -----------------------------------------------------------------------------
+# Exceptions (keep these tracked even if they are .md)
+# -----------------------------------------------------------------------------
+!README.md
+!**/README.md
 
 # -----------------------------------------------------------------------------
 # Voice Files (personal writing style, not for public repo)

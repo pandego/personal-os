@@ -1,0 +1,1 @@
+[PLACEHOLDER - Add outbound systems documentation here, like email sequences, LinkedIn outreach, upwork proposals, etc.]
