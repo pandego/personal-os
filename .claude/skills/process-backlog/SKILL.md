@@ -52,6 +52,7 @@ Use `mcp__todoist__find-tasks` to get all tasks from PersonalOS.
 
 For each task in Todoist not in local KANBAN.md:
 - Add to the matching section in KANBAN.md
+- Keep track of Todoist task IDs for later cleanup
 
 ### Step 3: Process Backlog Items
 
@@ -102,15 +103,35 @@ After processing each backlog item:
 
 ### Step 5: If Syncing with Todoist
 
-#### 5a. Push Processed Items
+#### 5a. Clean Up Todoist Backlog
 
-For each item in Ready that's not in Todoist:
-- Use `mcp__todoist__add-tasks` with the Ready section ID
+For tasks that were pulled from Todoist Backlog and processed:
+- Use `mcp__todoist__delete-object` with type "task" to remove them from Todoist Backlog
+- These tasks will be re-added to Todoist Ready in the next step
+
+#### 5b. Push All Ready Items to Todoist
+
+For each item in local Ready:
+- Check if it exists in Todoist Ready section
+- If not, use `mcp__todoist__add-tasks` with the Ready section ID
+- This ensures complete bidirectional sync
+
+#### 5c. Sync Other Sections
+
+For items in local "In Progress":
+- Ensure they exist in Todoist "In Progress" section
 
 For completed items (in Done):
-- Use `mcp__todoist__complete-tasks`
+- Use `mcp__todoist__complete-tasks` if not already completed in Todoist
 
-#### 5b. Update Last Sync
+#### 5d. Final Verification
+
+After sync, verify that:
+- Todoist Backlog section has same count as local Backlog (should be 0 after processing)
+- Todoist Ready section has same count as local Ready
+- If counts don't match, report the discrepancy to the user
+
+#### 5e. Update Last Sync
 
 Update the frontmatter in KANBAN.md:
 ```yaml

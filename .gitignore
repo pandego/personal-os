@@ -132,12 +132,14 @@ ipython_config.py
 .env
 .envrc
 .pypirc
+.claude/settings.local.json
 
 # -----------------------------------------------------------------------------
 # IDE & Editors
 # -----------------------------------------------------------------------------
 # .idea/
 # .vscode/
+.obsidian
 .cursorignore
 .cursorindexingignore
 
