@@ -5,28 +5,29 @@
 # -----------------------------------------------------------------------------
 # Personal Content (private, not for public repo)
 # -----------------------------------------------------------------------------
-3-personal/**/01-drafts/
-3-personal/**/02-done/
-3-personal/03-knowledge/
+3-personal/**/01-drafts/*.md
+3-personal/**/02-done/*.md
+3-personal/03-knowledge/**/*.md
 
 # -----------------------------------------------------------------------------
 # Content - Drafts & Work in Progress (keep templates, ignore content)
 # -----------------------------------------------------------------------------
-1-content/**/01-drafts/
-1-content/**/02-in-review/
-1-content/**/03-published/
-1-content/**/04-my-top/
-1-content/**/05-swipe-files/
+1-content/**/01-drafts/*.md
+1-content/**/02-in-review/*.md
+1-content/**/03-published/*.md
+1-content/**/04-my-top/*.md
+1-content/**/05-swipe-files/*.md
 1-content/_external/
 
 # -----------------------------------------------------------------------------
 # Business - Client work & proposals (private)
 # -----------------------------------------------------------------------------
-2-business/**/01-drafts/
-2-business/**/02-done/
-2-business/**/03-published/
+2-business/**/01-drafts/*.md
+2-business/**/02-done/*.md
+2-business/**/03-published/*.md
 2-business/**/TEMPLATE_*.md
-2-business/02-clients/
+2-business/02-outbound/**/*.md
+2-business/03-clients/**/*.md
 RESUME.md
 
 # -----------------------------------------------------------------------------
