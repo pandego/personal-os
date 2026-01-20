@@ -8,6 +8,9 @@
 3-personal/**/01-drafts/*.md
 3-personal/**/02-done/*.md
 3-personal/03-knowledge/**/*.md
+3-personal/03-knowledge/ebooks/**/*
+!3-personal/03-knowledge/ebooks/_template/
+!3-personal/03-knowledge/ebooks/_template/**
 
 # -----------------------------------------------------------------------------
 # Content - Drafts & Work in Progress (keep templates, ignore content)
