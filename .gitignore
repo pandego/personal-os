@@ -21,6 +21,8 @@
 1-content/**/04-my-top/*.md
 1-content/**/05-swipe-files/*.md
 1-content/_external/
+.claude/**/linkedin/*.md
+.claude/skills/linkedin-content/
 
 # -----------------------------------------------------------------------------
 # Business - Client work & proposals (private)
@@ -29,6 +31,7 @@
 2-business/**/02-done/*.md
 2-business/**/03-published/*.md
 2-business/**/TEMPLATE_*.md
+.claude/**/upwork/*.md
 
 # Outbound: keep folder structure, ignore all contents except .gitkeep
 2-business/02-outbound/**/*
