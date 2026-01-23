@@ -41,9 +41,19 @@ uv run <script>  # Run with project environment
 2-business/          # Business OS: portfolio, outbound, clients
 3-personal/          # Personal OS: reviews, knowledge (private)
 .claude/             # Source of truth for all IDE configs
+  ├── agents/        # Subagents for delegation (run in separate context)
   ├── commands/      # Slash command definitions
   └── skills/        # Reusable automation (process-backlog, setup-repo)
 ```
+
+### .claude/ Organization
+
+**Rule: Flat = public, Subfolder = private**
+
+- Flat files (e.g., `commands/draft-blog.md`) → committed to git
+- Domain subfolders (e.g., `commands/linkedin/`, `agents/linkedin/`) → gitignored
+
+This keeps proprietary voice guides and specialized workflows private while sharing the generic structure.
 
 ## Voice System
 
@@ -69,3 +79,8 @@ Core patterns: authority via specifics, no corporate jargon, statement hooks (no
 ## Gitignore Behavior
 
 The repo tracks structure (`.gitkeep` files) but excludes actual content: all drafts, published posts, personal reviews, client work, and `RESUME.md` are gitignored. Only templates and voice guides are versioned.
+
+## Reference
+
+For Claude Code configuration patterns (skills, agents, hooks, CLAUDE.md structure), see:
+- `_system/docs/claude-code_best-practices.md` — comprehensive guide to Claude Code usage
