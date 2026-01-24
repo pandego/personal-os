@@ -1,42 +1,96 @@
 ---
 name: setup-repo
-description: Interactive setup workflow for Personal OS repository. Use when user explicitly asks to set up the repo, initialize Personal OS, or run first-time setup. Guides through voice configuration (asking playful questions about communication style, personality), Python environment setup (checking for uv), and optional Todoist MCP configuration for task/idea sync.
+description: Interactive setup workflow for Personal OS repository. Use when user explicitly asks to set up the repo, initialize Personal OS, or run first-time setup. Guides through voice configuration, Python environment setup (checking for uv), and optional Todoist MCP configuration for task/idea sync.
 ---
 
 # Personal OS Setup
 
-Three things to set up: your voice, Python environment, and optionally Todoist sync.
+Welcome message:
 
-## 1. Voice Configuration
-
-Ask these questions conversationally. Be playful and direct.
-
-**The basics:**
-- "What's your name and what do you do for work?"
-- "Who's your content for? Engineers? Founders? Your future confused self?"
-
-**Personality vibes:**
-- "Quick one—are you more 🎯 *straight to the point* or 🌊 *let me tell you a story first*?"
-- "When explaining something technical: 📚 *step-by-step teacher* or 💡 *here's the insight, figure it out*?"
-- "Caveats and disclaimers: 🤓 *I have 17 edge cases to mention* or ⚡ *main point, moving on*?"
-
-**Optional fun:**
-- "Know your Myers-Briggs type? If yes, what is it? If no, no worries."
-
-**Tone calibration:**
-- "Scale of 'academic paper' to 'explaining to a friend at a bar'—where do you land?"
-- "Emojis: love them, use sparingly, or hard pass?"
-- "Swearing in content: fuck yeah, occasionally, or keep it clean?"
-
-### Generate VOICE.md
-
-After gathering answers, read `assets/VOICE_template.md` and fill it in based on responses.
-
-Save to `/VOICE.md` (root of repo).
+```
+╔══════════════════════════════════════════════════════════════════╗
+║                     PERSONAL OS SETUP                            ║
+╠══════════════════════════════════════════════════════════════════╣
+║  Three steps:                                                    ║
+║    1. Voice - How you sound in writing                           ║
+║    2. Python - Environment setup                                 ║
+║    3. Todoist - Task sync (optional)                             ║
+╚══════════════════════════════════════════════════════════════════╝
+```
 
 ---
 
-## 2. Python Environment
+## Step 1: Voice Configuration
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  STEP 1 OF 3: YOUR VOICE                                         │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+Use AskUserQuestion to gather voice info in batches. Keep questions clear and simple.
+
+### Question Set 1: Identity
+
+Ask: "Let's set up your writing voice. First, the basics:"
+
+Use AskUserQuestion with these questions:
+1. **"What's your name?"** (free text - user types "Other")
+2. **"What do you do?"** (free text - user types "Other")
+3. **"Who do you write for?"** Options:
+   - Engineers/developers
+   - Founders/entrepreneurs
+   - General tech audience
+   - (Other for custom)
+
+### Question Set 2: Communication Style
+
+Ask: "Now, how do you like to communicate:"
+
+Use AskUserQuestion with these questions:
+1. **"How direct is your writing?"** Options:
+   - Very direct - get to the point fast
+   - Balanced - some context, then the point
+   - Storytelling - build up to the insight
+
+2. **"How formal is your tone?"** Options:
+   - Professional but approachable
+   - Casual, like talking to a colleague
+   - Very casual, conversational
+
+3. **"Emojis in your content?"** Options:
+   - Yes, I use them
+   - Sparingly
+   - Never
+
+4. **"Occasional swearing okay?"** Options:
+   - Yes
+   - No
+
+5. **"What writing patterns do you want to avoid?"** (multiSelect: true) Options:
+   - Corporate jargon ("synergy", "leverage", "ecosystem")
+   - Clickbait hooks ("You won't believe...")
+   - Over-hedging ("I think maybe perhaps...")
+   - Excessive caveats and disclaimers
+   - (Other for custom)
+
+### Generate VOICE.md
+
+After gathering answers, read `assets/VOICE_template.md` and generate a filled-in version.
+
+Save to `/VOICE.md` (root of repo).
+
+Confirm: "Voice saved to VOICE.md"
+
+---
+
+## Step 2: Python Environment
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  STEP 2 OF 3: PYTHON ENVIRONMENT                                 │
+└──────────────────────────────────────────────────────────────────┘
+```
 
 ### Check for uv
 
@@ -44,20 +98,25 @@ Save to `/VOICE.md` (root of repo).
 which uv
 ```
 
-**If uv NOT found**, say something like:
+**If uv NOT found:**
 
-> "Ah. Here's the thing—without `uv`, your Python environments will turn into a tangled mess faster than you can say 'but it works on my machine.'
+Tell the user:
+> Personal OS uses `uv` for Python dependency management.
 >
-> I'd strongly recommend installing it:
+> Install it with:
 > ```bash
 > curl -LsSf https://astral.sh/uv/install.sh | sh
 > ```
->
-> Want to install it now, or proceed at your own risk?"
+
+Use AskUserQuestion: "Install uv now?"
+- Yes, install it
+- Skip for now
+
+If they skip, warn them that `uv sync` commands won't work until they install it.
 
 **If uv IS found:**
 
-> "Nice! You have `uv`. Your future self thanks you."
+Tell the user: "uv found."
 
 ### Set up environment
 
@@ -65,69 +124,70 @@ which uv
 uv sync
 ```
 
+Confirm: "Python environment ready."
+
 ---
 
-## 3. Todoist MCP Setup (Optional)
+## Step 3: Todoist MCP (Optional)
 
-Ask the user:
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  STEP 3 OF 3: TODOIST SYNC (OPTIONAL)                            │
+└──────────────────────────────────────────────────────────────────┘
+```
 
-> "Do you want to set up Todoist sync? This lets you capture ideas in Todoist and sync them to your local `KANBAN.md` file (and vice versa).
->
-> **Requirements:**
-> - A Todoist account (free tier works)
-> - A project named **PersonalOS** with **board view** enabled
->
-> Want to set this up?"
+Use AskUserQuestion: "Set up Todoist sync? This lets you capture ideas in Todoist and sync them to your local KANBAN.md file."
+- Yes, set it up
+- No, skip this
 
-**If user says NO:**
+**If NO:** Skip to Wrap Up. Tell them they can set it up later with:
+```bash
+claude mcp add --transport http todoist https://mcp.todoist.com/sse
+```
 
-> "No problem! You can always set it up later by running:
-> ```bash
-> claude mcp add --transport http todoist https://ai.todoist.net/mcp
-> ```
-> Then `/mcp` → select todoist → authenticate."
+**If YES:**
 
-Skip to Wrap Up.
-
-**If user says YES:**
-
-Check if Todoist MCP is already configured:
-
+Check if already configured:
 ```bash
 claude mcp list | grep -i todoist
 ```
 
 **If NOT found**, run:
-
 ```bash
-claude mcp add --transport http todoist https://ai.todoist.net/mcp
+claude mcp add --transport http todoist https://mcp.todoist.com/sse
 ```
 
-Then tell the user:
-
-> "Done! Next time you launch Claude, run `/mcp`, select **todoist**, and authenticate via your browser.
+Tell the user:
+> Todoist MCP added. Next time you start Claude Code:
+> 1. Run `/mcp` and select todoist
+> 2. Authenticate in your browser
+> 3. Create a project called **PersonalOS** in Todoist with **board view**
 >
-> **Important:** Make sure you have a project called **PersonalOS** in Todoist with **board view** enabled. That's what syncs with your local `KANBAN.md`.
->
-> Use `/sync-todoist` to sync your ideas between here and Todoist."
+> Then use `/process-backlog` to sync tasks.
 
 **If already configured:**
 
-> "Todoist MCP already set up. Nice.
->
-> Just make sure you have a **PersonalOS** project in Todoist with board view—that's where your ideas sync to."
+Tell the user:
+> Todoist already configured. Make sure you have a **PersonalOS** project with board view in Todoist.
 
 ---
 
 ## Wrap Up
 
-> "Setup complete!
-> - ✅ Voice configured (saved to VOICE.md)
-> - ✅ Python environment ready
-> - ✅ Todoist MCP configured (use `/process-backlog` to process and sync backlog items) ← *only if they set it up*
->
-> **Next step:** Before drafting content, set up your platform voices:
-> 1. Place your best posts in `1-content/01-blog/04-my-top/` (curated, not all)
-> 2. Add external examples to `1-content/01-blog/05-swipe-files/` (optional)
-> 3. Run `/update-voice blog` to generate your blog-specific voice
-> 4. Then you're ready for `/draft-blog [detailed idea for blog post]`"
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  SETUP COMPLETE                                                  │
+└──────────────────────────────────────────────────────────────────┘
+
+  [x] Voice configured (VOICE.md)
+  [x] Python environment ready
+  [x] Todoist sync (if enabled)
+
+  NEXT STEPS:
+
+  Before drafting content, set up platform-specific voices:
+
+  1. Add your best posts to: 1-content/01-blog/04-my-top/
+  2. Run: /update-voice blog
+  3. Then: /draft-blog [your topic]
+```
