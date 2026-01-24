@@ -8,6 +8,7 @@ Git submodules for reference repositories.
 |-----------|-------------|
 | `anthropic-skills/` | Official Anthropic Claude skills examples |
 | `obra-superpowers/` | Claude Code superpowers collection by Jesse Vincent |
+| `fork-terminal/`    | A simple skill you can use to fork your agentic coding tools to a new terminal window by IndyDevDan |
 
 ## Adding a New Submodule
 
