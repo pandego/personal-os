@@ -21,8 +21,6 @@
 1-content/**/04-my-top/*.md
 1-content/**/05-swipe-files/*.md
 1-content/_external/
-.claude/**/linkedin/*.md
-.claude/skills/linkedin-content/
 
 # -----------------------------------------------------------------------------
 # Business - Client work & proposals (private)
@@ -31,7 +29,6 @@
 2-business/**/02-done/
 2-business/**/03-published/
 2-business/**/TEMPLATE_*.md
-.claude/**/upwork/*.md
 
 # Outbound: keep folder structure, ignore all contents except .gitkeep
 2-business/02-outbound/**/*
@@ -56,6 +53,14 @@ RESUME.md
 # -----------------------------------------------------------------------------
 VOICE.md
 VOICE_*.md
+
+# -----------------------------------------------------------------------------
+# Claude Code
+# -----------------------------------------------------------------------------
+.claude/agents/**/*.md
+.claude/commands/**/*.md
+.claude/skills/blog-content/
+.claude/skills/linkedin-content/
 
 # -----------------------------------------------------------------------------
 # Python - Bytecode & Cache
