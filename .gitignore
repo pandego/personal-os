@@ -61,6 +61,7 @@ VOICE_*.md
 .claude/commands/**/*.md
 .claude/skills/blog-content/
 .claude/skills/linkedin-content/
+.claude/skills/fork-terminal/
 
 # -----------------------------------------------------------------------------
 # Python - Bytecode & Cache
