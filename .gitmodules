@@ -4,9 +4,9 @@
 [submodule "_external/obra-superpowers"]
 	path = _external/obra-superpowers
 	url = https://github.com/obra/superpowers.git
-[submodule "_external/disler-fork-terminal-skill"]
-	path = _external/disler-fork-terminal-skill
-	url = https://github.com/disler/fork-repository-skill.git
 [submodule "_external/pandego-parallel-thread-skill"]
 	path = _external/pandego-parallel-thread-skill
 	url = https://github.com/pandego/parallel-thread-skill.git
+[submodule "_external/disler-fork-terminal-skill"]
+	path = _external/disler-fork-terminal-skill
+	url = https://github.com/disler/fork-repository-skill.git
