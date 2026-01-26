@@ -28,13 +28,16 @@ Actionable scaffolds with placeholders for creating new components:
 - Future: skill-template.md, command-template.md, etc.
 
 ## Scripts
-Python utility scripts for system operations.
+Python utility scripts for system operations. See `scripts/README.md` for details.
 
 ### Script Usage
-Always use uv to run scripts:
+Scripts are registered in `pyproject.toml` and run as commands:
 ```bash
-uv run _system/scripts/<script>.py <args>
+uv run <command>
 ```
+
+Available commands:
+- `clean-git` - Clean Dropbox conflicted copies from `.git/`
 
 ## MCP Servers
 MCP servers are configured in root `.mcp.json` and start automatically with Claude Code, or globally in `~/.claude/settings.json`.
