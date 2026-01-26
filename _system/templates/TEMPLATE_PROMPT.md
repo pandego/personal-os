@@ -4,7 +4,7 @@ qqq
 
 ## Variables
 
-qqq
+SOME_VAR: "some value"
 
 ## Codebase Structure
 
