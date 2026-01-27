@@ -1,16 +1,8 @@
----
-title: "Year Review Template"
-description: "Output template for year reviews"
-last_updated: 2026-01-09
----
-
 # Year Review YYYY
 
 ## A Retrospective of the Good, the Bad, and the Blah
 
 Welcome to your YYYY Year Review. This exercise is a no-judgment look back at the last 12 months to see what worked, what didn't, and what you learned.
-
-Get clarity now to crush it next year!
 
 ## REVIEW
 

@@ -17,8 +17,7 @@ Personal OS is an AI-powered personal knowledge and content management system or
 | `/draft-tweet [topic]` | Create tweet in `1-content/03-twitter/01-drafts/` |
 | `/draft-youtube-script [topic]` | Create YouTube script in `1-content/04-youtube/01-drafts/` |
 | `/update-voice [platform]` | Analyze `04-my-top/` + `05-swipe-files/`, update voice guide |
-| `/review-week [transcript]` | Generate weekly review from notes |
-| `/review-year [transcript]` | Generate yearly review |
+| `/review` | Unified review skill (week/year) — gathers ALL Todoist projects + KANBAN |
 
 ## Python Environment
 

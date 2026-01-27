@@ -7,20 +7,20 @@ Private tracking separate from public content and business.
 - `02-year-reviews/` - Annual reviews
 - `03-knowledge/` - Personal knowledge and data exports
 
-## Week Reviews
-Run `/review-week` with dictated notes or transcript.
-Output: `01-week-reviews/02-done/YYYY-MM-DD_week-review.md`
+## Reviews
 
-Review format includes:
-- Highlights, goals & outcomes
-- What went well / didn't go well
-- Blockers & issues
-- Key metrics, learnings
-- Next week priorities
+Run `/review` to invoke the unified review skill. It will:
+1. Ask whether you want a week or year review
+2. Gather completed tasks from ALL Todoist projects (not just PersonalOS)
+3. Check KANBAN.md Done section
+4. Ask guided questions (5-7 for week, 8-10 for year)
+5. Generate structured review with planning section
 
-## Year Reviews
-Run `/review-year` at end of year.
-Output: `02-year-reviews/02-done/YYYY_year-review.md`
+**Output locations:**
+- Week: `01-week-reviews/02-done/YYYY-MM-DD_WXX_week-review.md`
+- Year: `02-year-reviews/02-done/YYYY_year-review.md`
+
+**Skill location:** `.claude/skills/review/`
 
 ## Knowledge
 - `03-knowledge/data-exports/` - LinkedIn exports, etc.
@@ -29,5 +29,4 @@ Output: `02-year-reviews/02-done/YYYY_year-review.md`
 ## Commands
 | Command | Action |
 |---------|--------|
-| `/review-week` | Generate weekly review |
-| `/review-year` | Generate yearly review |
+| `/review` | Unified review skill (week/year) |
