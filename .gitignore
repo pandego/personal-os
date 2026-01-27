@@ -63,6 +63,12 @@ VOICE_*.md
 .claude/skills/linkedin-content/
 .claude/skills/fork-terminal/
 .claude/skills/pthd/
+.claude/skills/brand-guidelines/
+.claude/skills/docx/
+.claude/skills/pptx/
+.claude/skills/xlsx/
+.claude/skills/pdf/
+.claude/skills/skill-creator/
 
 # -----------------------------------------------------------------------------
 # Python - Bytecode & Cache
