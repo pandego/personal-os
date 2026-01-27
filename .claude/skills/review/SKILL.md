@@ -95,7 +95,7 @@ uv run .claude/skills/review/tools/week_number.py --filename        # Current we
 uv run .claude/skills/review/tools/week_number.py 2026-01-24 --filename  # Specific date
 ```
 
-Or inline: `python -c "from datetime import datetime; d=datetime.now(); print(f'W{d.isocalendar()[1]:02d}')"`
+Or inline: `uv run python -c "from datetime import datetime; d=datetime.now(); print(f'W{d.isocalendar()[1]:02d}')"`
 
 ---
 

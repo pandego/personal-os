@@ -21,11 +21,16 @@ Personal OS is an AI-powered personal knowledge and content management system or
 
 ## Python Environment
 
-Uses `uv` for dependency management:
+**CRITICAL: ALWAYS use `uv run` to execute Python. NEVER use `python` or `python3` directly.**
+
 ```bash
-uv sync          # Install dependencies
-uv run <script>  # Run with project environment
+uv sync                    # Install dependencies
+uv run <script>            # Run Python scripts
+uv run python -c "..."     # Run inline Python
+uv run pytest              # Run tests
 ```
+
+This applies to ALL Python execution—scripts, inline commands, pytest, everything. No exceptions.
 
 ## Architecture
 
