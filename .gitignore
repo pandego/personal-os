@@ -59,16 +59,21 @@ VOICE_*.md
 # -----------------------------------------------------------------------------
 .claude/agents/**/*.md
 .claude/commands/**/*.md
+
+# _internal skills
 .claude/skills/blog-content/
 .claude/skills/linkedin-content/
+.claude/skills/brand-guidelines-datavengers/
+
+# _external skills
 .claude/skills/fork-terminal/
 .claude/skills/pthd/
 .claude/skills/brand-guidelines/
+.claude/skills/skill-creator/
 .claude/skills/docx/
 .claude/skills/pptx/
 .claude/skills/xlsx/
 .claude/skills/pdf/
-.claude/skills/skill-creator/
 
 # -----------------------------------------------------------------------------
 # Python - Bytecode & Cache
