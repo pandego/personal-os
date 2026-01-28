@@ -64,6 +64,7 @@ VOICE_*.md
 .claude/skills/blog-content/
 .claude/skills/linkedin-content/
 .claude/skills/brand-guidelines-datavengers/
+.claude/skills/datavengers-proposal/
 
 # _external skills
 .claude/skills/fork-terminal/
