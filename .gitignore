@@ -61,6 +61,7 @@ VOICE_*.md
 .claude/commands/**/*.md
 
 # _internal skills
+_internal/
 .claude/skills/blog-content/
 .claude/skills/linkedin-content/
 .claude/skills/brand-guidelines-datavengers/
