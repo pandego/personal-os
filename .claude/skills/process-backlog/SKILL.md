@@ -42,7 +42,20 @@ IF scope = "Local only":
     → Execute processing
 ```
 
-### Step 3: Handle Unclear Items
+### Step 3: Handle Attachments (CRITICAL)
+
+```
+FOR EACH task with attachments (images, files):
+    → Read cookbook/handle-attachments.md
+    → Download attachment to ./tmp/
+    → Analyze content (extract text from screenshots, etc.)
+    → Update task with extracted content
+    → ONLY THEN proceed with modifications
+```
+
+**NEVER delete a task with unprocessed attachments. Data loss is unacceptable.**
+
+### Step 4: Handle Unclear Items
 
 ```
 IF item is unclear during processing:
@@ -59,6 +72,7 @@ Load these as needed:
 
 | Document | When to Load |
 |----------|--------------|
+| `cookbook/handle-attachments.md` | **FIRST** — when any task has images/files |
 | `DEFINITION_OF_READY.md` | When formatting tasks for Ready |
 | `ANTI_PATTERNS.md` | When validating task quality |
 | `SYNC_RULES.md` | When resolving state conflicts |
@@ -102,3 +116,5 @@ Then ask:
 | Todoist MCP not connected | "Run `/mcp` and connect the Todoist server first" |
 | PersonalOS project missing | "Create a 'PersonalOS' project in Todoist with board view" |
 | Empty backlog | "No items in backlog to process!" |
+| Attachment download fails | Ask user to manually download to `./tmp/` |
+| Task has unprocessed attachment | **STOP** — do not modify until content extracted |

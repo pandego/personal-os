@@ -4,9 +4,19 @@ Bidirectional sync between KANBAN.md and Todoist PersonalOS project.
 
 **Reference:** See `../SYNC_RULES.md` for state comparison matrix.
 
+**CRITICAL:** Before modifying ANY task, check for attachments. See `handle-attachments.md`.
+
 ---
 
 ## Pull from Todoist
+
+### 0. Ensure Temp Directory
+
+```bash
+mkdir -p ./tmp
+```
+
+This is where attachments will be downloaded for analysis.
 
 ### 1. Find PersonalOS Project
 
@@ -38,6 +48,25 @@ Use mcp__claude_ai_todoist__find-tasks with projectId
 ```
 
 Returns tasks with their section IDs. Map section ID → section name.
+
+### 3b. Check for Attachments (CRITICAL)
+
+For EACH task, check if it has attachments:
+
+```
+Use mcp__claude_ai_todoist__find-comments with taskId
+```
+
+**If task has `fileAttachment` in any comment:**
+→ **DISPATCH to `handle-attachments.md`**
+
+This MUST happen BEFORE any task modification. The attachment workflow will:
+1. Download the file to `./tmp/`
+2. Analyze content (extract text from screenshots, etc.)
+3. Update the task with extracted content
+4. Return control here for further processing
+
+**DO NOT skip this step. Data loss is unacceptable.**
 
 ### 4. Get Completed Tasks
 
@@ -87,12 +116,18 @@ Use mcp__claude_ai_todoist__complete-tasks with task IDs
 
 ### 4. Clean Up Processed Backlog
 
+**BEFORE deleting any task, verify:**
+1. Task has NO attachments, OR
+2. Attachments were already processed via `handle-attachments.md`
+
 For Todoist Backlog tasks that were processed to Ready:
 ```
 Use mcp__claude_ai_todoist__delete-object with type "task"
 ```
 
 These tasks are re-added as Ready items (prevents duplicates).
+
+**WARNING:** NEVER delete a task with unprocessed attachments. If in doubt, use `update-tasks` to modify in place instead of delete+recreate.
 
 ---
 
