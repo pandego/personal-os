@@ -70,6 +70,23 @@ When creating a new skill, ALWAYS use `_system/templates/TEMPLATE_SKILL.md` as t
 
 This ensures consistency across all skills and makes them easier to maintain.
 
+### Skills Architecture (Symlinks)
+
+Most skills in `.claude/skills/` are **symbolic links** pointing to external submodules or private repos. This eliminates duplication and allows changes to flow directly to source repositories.
+
+**Source locations:**
+- `_external/anthropic-skills/skills/` — docx, pdf, pptx, xlsx, brand-guidelines, skill-creator
+- `_external/disler-fork-terminal-skill/.claude/skills/` — fork-terminal
+- `_external/pandego-parallel-thread-skill/.claude/skills/` — pthd
+- `_internal/private-skills/.claude/skills/` — blog-content, linkedin-content, brand-guidelines-datavengers, datavengers-proposal
+
+**Local skills (NOT symlinked):**
+- process-backlog, review, setup-repo
+
+**Setup:** Run `uv run setup-symlinks` after cloning (or use `/setup-repo`). The script is idempotent—safe to run multiple times.
+
+**Editing skills:** Changes made to symlinked skills appear in the source repo. Use `git status` in the source repo to track and commit changes.
+
 ## Voice System
 
 Before creating content, always read:
