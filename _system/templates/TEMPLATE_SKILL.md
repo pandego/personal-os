@@ -15,7 +15,7 @@ SOME_VAR: "some value"
 
 qqq
 
-## WorkfLow
+## Workflow
 
 1. qqq
 2. qqq
