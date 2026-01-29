@@ -1,6 +1,6 @@
 ---
 name: setup-repo
-description: Interactive setup workflow for Personal OS repository. Use when user explicitly asks to set up the repo, initialize Personal OS, or run first-time setup. Guides through voice configuration, Python environment setup (checking for uv), and optional Todoist MCP configuration for task/idea sync.
+description: Interactive setup workflow for Personal OS repository. Use when user explicitly asks to set up the repo, initialize Personal OS, or run first-time setup. Guides through voice configuration, Python environment setup (checking for uv), skill symlinks, and optional Todoist MCP configuration for task/idea sync.
 ---
 
 # Personal OS Setup
@@ -11,10 +11,11 @@ Welcome message:
 ╔══════════════════════════════════════════════════════════════════╗
 ║                     PERSONAL OS SETUP                            ║
 ╠══════════════════════════════════════════════════════════════════╣
-║  Three steps:                                                    ║
+║  Four steps:                                                     ║
 ║    1. Voice - How you sound in writing                           ║
 ║    2. Python - Environment setup                                 ║
-║    3. Todoist - Task sync (optional)                             ║
+║    3. Skills - Symlink external skills                           ║
+║    4. Todoist - Task sync (optional)                             ║
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
@@ -24,7 +25,7 @@ Welcome message:
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│  STEP 1 OF 3: YOUR VOICE                                         │
+│  STEP 1 OF 4: YOUR VOICE                                         │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -88,7 +89,7 @@ Confirm: "Voice saved to VOICE.md"
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│  STEP 2 OF 3: PYTHON ENVIRONMENT                                 │
+│  STEP 2 OF 4: PYTHON ENVIRONMENT                                 │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -128,11 +129,36 @@ Confirm: "Python environment ready."
 
 ---
 
-## Step 3: Todoist MCP (Optional)
+## Step 3: Skills Symlinks
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│  STEP 3 OF 3: TODOIST SYNC (OPTIONAL)                            │
+│  STEP 3 OF 4: SKILLS SYMLINKS                                    │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+This step links external skills from submodules to `.claude/skills/`.
+
+Run the setup script:
+
+```bash
+uv run setup-symlinks
+```
+
+This script:
+- Initializes git submodules if needed
+- Creates symlinks for skills from `_external/` repos
+- Optionally links private skills from `_internal/` (if present)
+
+Confirm: "Skills symlinked."
+
+---
+
+## Step 4: Todoist MCP (Optional)
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  STEP 4 OF 4: TODOIST SYNC (OPTIONAL)                            │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -181,6 +207,7 @@ Tell the user:
 
   [x] Voice configured (VOICE.md)
   [x] Python environment ready
+  [x] Skills symlinked
   [x] Todoist sync (if enabled)
 
   NEXT STEPS:
