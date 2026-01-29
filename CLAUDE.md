@@ -59,6 +59,17 @@ This applies to ALL Python execution—scripts, inline commands, pytest, everyth
 
 This keeps proprietary voice guides and specialized workflows private while sharing the generic structure.
 
+### Creating Skills
+
+**Rule: ALWAYS start from template**
+
+When creating a new skill, ALWAYS use `_system/templates/TEMPLATE_SKILL.md` as the base structure:
+1. Copy the template to `.claude/skills/<skill-name>/SKILL.md`
+2. Fill in each section (Purpose, Variables, Instructions, Workflow, Cookbook)
+3. Adapt as needed while preserving the core structure
+
+This ensures consistency across all skills and makes them easier to maintain.
+
 ## Voice System
 
 Before creating content, always read:
