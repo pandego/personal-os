@@ -168,6 +168,7 @@ ipython_config.py
 .obsidian
 .cursorignore
 .cursorindexingignore
+.windsurf/plans/
 
 # -----------------------------------------------------------------------------
 # Logs & Databases
