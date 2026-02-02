@@ -20,7 +20,9 @@ dependencies = [
 package = true
 
 [project.scripts]
+clean = "_system.scripts.clean_all:main"
 clean-git = "_system.scripts.clean_git:main"
+clean-env = "_system.scripts.clean_env:main"
 setup-symlinks = "_system.scripts.setup_symlinks:main"
 
 [build-system]
