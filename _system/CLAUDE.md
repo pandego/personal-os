@@ -36,8 +36,12 @@ Scripts are registered in `pyproject.toml` and run as commands:
 uv run <command>
 ```
 
-Available commands:
+**Why:** When using Git inside Dropbox (or any cloud storage), multiple computers syncing the same files create "conflicted copy" files. These corrupt Git's internal state and Python environments.
+
+**Available commands:**
+- `clean` - Master command: cleans Git conflicts + rebuilds Python environment
 - `clean-git` - Clean Dropbox conflicted copies from `.git/`
+- `clean-env` - Delete `.venv/` and run `uv sync` to rebuild from scratch
 
 ## MCP Servers
 MCP servers are configured in root `.mcp.json` and start automatically with Claude Code, or globally in `~/.claude/settings.json`.
