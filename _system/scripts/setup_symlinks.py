@@ -100,7 +100,9 @@ def main() -> None:
     # Anthropic Skills
     print("--- Anthropic Skills (from _external/anthropic-skills) ---")
     for skill in ["docx", "pdf", "pptx", "xlsx", "brand-guidelines", "skill-creator"]:
-        create_symlink(skills_dir, skill, f"../../_external/anthropic-skills/skills/{skill}")
+        create_symlink(
+            skills_dir, skill, f"../../_external/anthropic-skills/skills/{skill}"
+        )
     print()
 
     # Fork Terminal
@@ -130,6 +132,7 @@ def main() -> None:
             "linkedin-content",
             "brand-guidelines-datavengers",
             "datavengers-proposal",
+            "comment-suggesting",
         ]:
             create_symlink(
                 skills_dir,
@@ -137,7 +140,9 @@ def main() -> None:
                 f"../../_internal/private-skills/.claude/skills/{skill}",
             )
     else:
-        print(f"{YELLOW}[WARN]{NC} _internal/private-skills not found - skipping private skills")
+        print(
+            f"{YELLOW}[WARN]{NC} _internal/private-skills not found - skipping private skills"
+        )
         print("       (This is normal if you don't have access to the private repo)")
     print()
 
