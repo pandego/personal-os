@@ -133,6 +133,7 @@ def main() -> None:
             "brand-guidelines-datavengers",
             "datavengers-proposal",
             "comment-suggesting",
+            "upwork",
         ]:
             create_symlink(
                 skills_dir,
