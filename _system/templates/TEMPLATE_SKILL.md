@@ -1,5 +1,5 @@
 ---
-name: Skill_Name
+name: skill-name
 description: Describe what this skill does in one sentence. Describe when the skill should be used in one sentence.
 ---
 
