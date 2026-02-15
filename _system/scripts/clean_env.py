@@ -4,6 +4,7 @@
 import subprocess
 import shutil
 from pathlib import Path
+from loguru import logger
 
 
 def find_venv() -> Path | None:
@@ -17,18 +18,18 @@ def find_venv() -> Path | None:
 def delete_venv(venv_path: Path) -> bool:
     """Delete the virtual environment directory."""
     try:
-        print(f"  Removing {venv_path}...")
+        logger.info(f"  Removing {venv_path}...")
         shutil.rmtree(venv_path)
         return True
     except Exception as e:
-        print(f"  Error removing venv: {e}")
+        logger.error(f"  Error removing venv: {e}")
         return False
 
 
 def sync_dependencies() -> bool:
     """Run uv sync to reinstall dependencies."""
     try:
-        print("  Running uv sync...")
+        logger.info("  Running uv sync...")
         result = subprocess.run(
             ["uv", "sync"],
             capture_output=True,
@@ -37,7 +38,7 @@ def sync_dependencies() -> bool:
         )
         return True
     except subprocess.CalledProcessError as e:
-        print(f"  Error running uv sync: {e.stderr}")
+        logger.error(f"  Error running uv sync: {e.stderr}")
         return False
 
 
@@ -46,22 +47,22 @@ def main() -> None:
     venv_path = find_venv()
 
     if not venv_path:
-        print("No .venv directory found, running uv sync...")
+        logger.info("No .venv directory found, running uv sync...")
         if sync_dependencies():
-            print("Environment synced successfully")
+            logger.success("Environment synced successfully")
         else:
-            print("Failed to sync environment")
+            logger.error("Failed to sync environment")
         return
 
-    print(f"Cleaning Python environment at {venv_path}...")
+    logger.info(f"Cleaning Python environment at {venv_path}...")
 
     if delete_venv(venv_path):
         if sync_dependencies():
-            print("Environment cleaned and rebuilt successfully")
+            logger.success("Environment cleaned and rebuilt successfully")
         else:
-            print("Failed to rebuild environment")
+            logger.error("Failed to rebuild environment")
     else:
-        print("Failed to clean environment")
+        logger.error("Failed to clean environment")
 
 
 if __name__ == "__main__":

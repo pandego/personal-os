@@ -6,6 +6,7 @@ dependencies = [
     "defusedxml>=0.7.1",
     "docx>=0.2.4",
     "ipykernel>=7.1.0",
+    "loguru>=0.7.3",
     "markitdown[pptx]>=0.1.4",
     "mcp>=1.25.0",
     "numpy>=2.3.5",
