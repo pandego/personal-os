@@ -4,6 +4,8 @@
 import subprocess
 from pathlib import Path
 
+from loguru import logger
+
 
 def find_git_root() -> Path | None:
     """Find the root of the git repository."""
@@ -24,7 +26,7 @@ def clean_conflicted_copies(git_dir: Path) -> int:
     count = 0
     for path in git_dir.rglob("*conflicted copy*"):
         if path.is_file():
-            print(f"  Deleting: {path.name}")
+            logger.info(f"  Deleting: {path.name}")
             path.unlink()
             count += 1
     return count
@@ -35,16 +37,16 @@ def main() -> None:
     git_dir = find_git_root()
 
     if not git_dir:
-        print("Not in a git repository")
+        logger.info("Not in a git repository")
         return
 
-    print(f"Scanning {git_dir} for Dropbox conflicts...")
+    logger.info(f"Scanning {git_dir} for Dropbox conflicts...")
     count = clean_conflicted_copies(git_dir)
 
     if count:
-        print(f"Cleaned {count} conflicted file(s)")
+        logger.info(f"Cleaned {count} conflicted file(s)")
     else:
-        print("No conflicted copies found")
+        logger.info("No conflicted copies found")
 
 
 if __name__ == "__main__":
