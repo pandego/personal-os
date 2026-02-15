@@ -11,7 +11,7 @@ _system/
 │   └── voice-template.md  # Template for creating new platform voice files
 ├── scripts/         # Python utility scripts
 ├── mcp-servers/     # MCP server implementations
-└── CLAUDE.md
+└── README-system.md
 ```
 
 ## Folders

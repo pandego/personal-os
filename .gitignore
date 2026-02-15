@@ -169,12 +169,17 @@ ipython_config.py
 # -----------------------------------------------------------------------------
 # IDE & Editors
 # -----------------------------------------------------------------------------
-# .idea/
-# .vscode/
+.idea/
+.vscode/
+.claude/
+.codex/
+.cloud/
 .obsidian
 .cursorignore
 .cursorindexingignore
 .windsurf/plans/
+!.agents/
+!.agents/**
 
 # -----------------------------------------------------------------------------
 # Logs & Databases
@@ -193,3 +198,6 @@ tmp*/
 *.spec
 *.mo
 *.pot
+
+# Agentic Config (generated - do not commit)
+.agentic-config.json
