@@ -5,6 +5,7 @@
 # -----------------------------------------------------------------------------
 # Personal Content (private, not for public repo)
 # -----------------------------------------------------------------------------
+3-personal/
 3-personal/**/01-drafts/*.md
 3-personal/**/02-done/*.md
 3-personal/03-knowledge/**/*.md
