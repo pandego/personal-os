@@ -8,11 +8,8 @@
 1-personal/**/01-drafts/*.md
 1-personal/**/02-done/*.md
 1-personal/03-knowledge/**/*.md
-1-personal/03-knowledge/ebooks/**/*
 !1-personal/README_personal.md
 !1-personal/**/.gitkeep
-!1-personal/03-knowledge/ebooks/_template/
-!1-personal/03-knowledge/ebooks/_template/**
 
 # -----------------------------------------------------------------------------
 # Content - Drafts & Work in Progress (keep templates, ignore content)

@@ -8,6 +8,8 @@ This area is for private reflection, reviews, and personal reference material.
 - `02-year-reviews/` - yearly reviews
 - `03-knowledge/` - private notes and personal reference material
 
+`03-knowledge/` is intentionally broad. Add your own structure only when it becomes useful.
+
 ## Main skill
 
 - `review` - guided weekly or yearly reflection
