@@ -1,6 +1,6 @@
 # Week Review Questions
 
-Interactive questions for the weekly review workflow. Use with `AskUserQuestion` tool.
+Interactive questions for the weekly review workflow. Use with `AskUserQuestion`.
 
 ---
 
@@ -8,15 +8,15 @@ Interactive questions for the weekly review workflow. Use with `AskUserQuestion`
 
 ### Input Source
 ```yaml
-question: "Do you have notes or a transcript to include?"
+question: "Do you have notes or material to include?"
 header: "Input"
 options:
   - label: "Yes, file path"
     description: "I'll point you to the file"
   - label: "Yes, paste it"
     description: "I'll paste or dictate my notes"
-  - label: "No, just data"
-    description: "Build from Todoist + KANBAN only"
+  - label: "No, just workspace data"
+    description: "Build from what is already in this folder"
 multiSelect: false
 ```
 
@@ -38,92 +38,45 @@ multiSelect: false
 
 ## Review Questions
 
-### Q1: Validate Accomplishments
+### Q1: Validate Highlights
 ```yaml
-question: "I found [X] completed tasks. Anything missing or incorrect?"
-header: "Verify"
-options:
-  - label: "Looks good"
-    description: "The list is accurate"
-  - label: "Add more"
-    description: "I accomplished more things"
-  - label: "Remove some"
-    description: "Some weren't actually completed"
-multiSelect: false
-```
-
-**Follow-up if "Add more":** Free text — "What else did you accomplish?"
-
-### Q2: Highlights
-```yaml
-question: "What were the TOP 2-3 highlights of your week?"
+question: "I found a few likely highlights from your week. Does this feel right?"
 header: "Highlights"
 options:
-  - label: "Use suggestions"
-    description: "Accept the highlights I identified from data"
-  - label: "Different highlights"
-    description: "I'll tell you what stood out"
+  - label: "Looks good"
+    description: "The summary feels accurate"
+  - label: "Add more"
+    description: "There are more important things to include"
+  - label: "Change it"
+    description: "The emphasis is off"
 multiSelect: false
 ```
 
-**Follow-up if "Different":** Free text — "What were your highlights?"
-
-### Q3: Goals & Outcomes (if previous review exists)
+### Q2: What Went Well
 ```yaml
-question: "Last week you planned these priorities. Does this assessment look right?"
-header: "Goals"
-options:
-  - label: "Accurate"
-    description: "The status tracking is correct"
-  - label: "Add context"
-    description: "Let me explain what happened"
-multiSelect: false
-```
-
-**Follow-up if "Add context":** Free text per unfinished goal
-
-### Q4: What Went Well
-```yaml
-question: "What went particularly well this week?"
+question: "What went especially well this week?"
 header: "Went well"
-# Free text response
-# Prompts to consider:
-# - Processes that worked
-# - Habits that helped
-# - Collaborations that clicked
-# - Decisions you're glad you made
 ```
 
-### Q5: What Didn't Go Well
+### Q3: What Didn't Go Well
 ```yaml
-question: "What didn't go as planned?"
+question: "What did not go as planned?"
 header: "Challenges"
-# Free text response
-# Prompts to consider:
-# - Tasks that slipped
-# - Blockers encountered
-# - Time sinks
-# - Distractions
 ```
 
-### Q6: Blockers
+### Q4: Blockers
 ```yaml
-question: "Any blockers or challenges that impacted your week?"
+question: "Any blockers or friction points worth capturing?"
 header: "Blockers"
 options:
-  - label: "Yes, blockers"
-    description: "I encountered obstacles"
-  - label: "No blockers"
-    description: "Week went smoothly"
+  - label: "Yes"
+    description: "There were obstacles"
+  - label: "No"
+    description: "Nothing major"
 multiSelect: false
 ```
 
-**Follow-up if "Yes":** For each blocker:
-- What was the blocker?
-- What was its impact?
-- Is it resolved? If not, what's needed?
-
-### Q7: Learnings
+### Q5: Learnings
 ```yaml
 question: "What did you learn this week?"
 header: "Learnings"
@@ -135,60 +88,36 @@ options:
 multiSelect: false
 ```
 
-**Follow-up if "Share":** Free text — list 1-3 learnings
-
----
-
-## Planning Questions
-
-### Q8: Next Week Priorities
+### Q6: Next Week Priorities
 ```yaml
-question: "Based on active tasks, what are your TOP 3-5 priorities for next week?"
+question: "What are your top priorities for next week?"
 header: "Priorities"
 options:
-  - label: "Accept suggestions"
-    description: "Use the recommended priorities from data"
-  - label: "Modify list"
-    description: "I have different priorities"
-  - label: "Mix"
-    description: "Keep some suggestions, change others"
+  - label: "Use suggestions"
+    description: "Start from the suggested priorities"
+  - label: "I have my own"
+    description: "I'll define them"
+  - label: "Mix both"
+    description: "Keep some suggestions and change others"
 multiSelect: false
 ```
 
-### Q9: Next Actions
+### Q7: Next Actions
 ```yaml
-question: "What are the specific NEXT ACTIONS for your top priorities?"
+question: "What are the next concrete actions for those priorities?"
 header: "Actions"
-# Free text — concrete, physical actions for each priority
-```
-
-### Q10: Todoist Sync (optional)
-```yaml
-question: "Want me to sync these priorities to Todoist?"
-header: "Sync"
-options:
-  - label: "Yes"
-    description: "Create/update tasks in Todoist Ready section"
-  - label: "No"
-    description: "Keep in review document only"
-multiSelect: false
 ```
 
 ---
 
 ## Question Flow
 
-1. Input source (Q0)
-2. Date range if needed (Q0b)
-3. Validate accomplishments (Q1)
-4. Highlights (Q2)
-5. Goals tracking if previous review (Q3)
-6. What went well (Q4)
-7. What didn't go well (Q5)
-8. Blockers (Q6)
-9. Learnings (Q7)
-10. Next week priorities (Q8)
-11. Next actions (Q9)
-12. Todoist sync (Q10)
-
-**Total: 7-10 questions depending on context**
+1. Input source
+2. Date range if needed
+3. Validate highlights
+4. What went well
+5. What didn't go well
+6. Blockers
+7. Learnings
+8. Next week priorities
+9. Next actions

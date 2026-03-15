@@ -13,22 +13,17 @@ Generate a structured weekly review through guided questions and data synthesis.
 
 Present the gathered data:
 
-> "Here's what I found you completed this week:"
+> "Here's what I found from your notes, prior reviews, and workspace material:"
 >
-> **From Todoist (X tasks across Y projects):**
-> - [task 1]
-> - [task 2]
-> - ...
->
-> **From KANBAN Done:**
 > - [item 1]
 > - [item 2]
+> - ...
 >
-> "Anything missing or incorrect?"
+> "Anything missing or inaccurate?"
 >
 > - **Looks good** — proceed
 > - **Add more** — "What else did you accomplish?"
-> - **Remove some** — "Which ones weren't actually done?"
+> - **Remove some** — "Which ones should not count?"
 
 ### Question 2: Highlights
 

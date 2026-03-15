@@ -5,16 +5,15 @@ Private tracking separate from public content and business.
 ## Structure
 - `01-week-reviews/` - Weekly retrospectives
 - `02-year-reviews/` - Annual reviews
-- `03-knowledge/` - Personal knowledge and data exports
+- `03-knowledge/` - Personal knowledge and private reference material
 
 ## Reviews
 
-Run `/review` to invoke the unified review skill. It will:
+Run `/review` to invoke the review skill. It will:
 1. Ask whether you want a week or year review
-2. Gather completed tasks from ALL Todoist projects (not just PersonalOS)
-3. Check KANBAN.md Done section
-4. Ask guided questions (5-7 for week, 8-10 for year)
-5. Generate structured review with planning section
+2. Gather the notes and material it can find in this workspace
+3. Ask guided reflection questions
+4. Generate a structured review with a forward-looking planning section
 
 **Output locations:**
 - Week: `01-week-reviews/02-done/YYYY-MM-DD_WXX_week-review.md`
@@ -23,10 +22,11 @@ Run `/review` to invoke the unified review skill. It will:
 **Skill location:** `.codex/skills/review/` (with `.claude/` symlinked to `.codex/`)
 
 ## Knowledge
-- `03-knowledge/data-exports/` - LinkedIn exports, etc.
-- Not for public content - personal reference only
+- `03-knowledge/` is for personal reference material that should not live in business or content folders
+- Keep this area useful, private, and lightweight
+- Prefer organized reference notes over dumping everything here
 
 ## Commands
 | Command | Action |
 |---------|--------|
-| `/review` | Unified review skill (week/year) |
+| `/review` | guided weekly or yearly reflection |

@@ -12,12 +12,14 @@ All content creation for Blog and LinkedIn.
 - `_external/` - Media and external assets
 
 ## Idea Capture
-Ideas are captured via `KANBAN.md` (synced with Todoist PersonalOS project via `/process-backlog`).
-For details on Todoist/Kanban setup, see the root `README.md`.
+Capture ideas in whatever way feels natural, then move the useful ones into the right folder when you are ready to shape them.
 
-**Important**: Tag ideas clearly (e.g., "blog idea", "linkedin idea") so they sync correctly to the Kanban.
+A simple approach is:
+- keep rough idea notes nearby until they matter
+- move promising ideas into the correct `01-drafts/` folder
+- use the folder structure to separate rough work from refined work
 
-Alternatively, drop idea files directly into any platform's `01-drafts/` folder, then reference them when calling `/draft-*` commands.
+Alternatively, drop idea files directly into a platform's `01-drafts/` folder, then reference them when calling `/draft-*` commands.
 
 ## Platform Folder Structure
 Each platform follows this pattern:

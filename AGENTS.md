@@ -51,10 +51,9 @@ Do not force advanced integrations as part of the core first-run flow.
 | Skill | Purpose |
 |-------|---------|
 | `get-started` | guided onboarding that shapes the system around the user |
-| `process-backlog` | turn rough ideas/tasks into cleaner, ready work |
 | `review` | weekly and yearly review workflows |
 
-These three local skills are the canonical skill set in this repo.
+These local skills are the canonical skill set in this repo.
 
 ## Python Environment
 
@@ -94,11 +93,8 @@ Python setup is important, but should be presented in plain language to non-tech
 The canonical runtime folder is `.codex/`, with `.claude/` symlinked to it for compatibility.
 
 The repo intentionally keeps a minimal local skill set:
-- `process-backlog`
 - `review`
 - `get-started`
-
-No external skill symlink setup is required.
 
 ## Voice System
 
@@ -111,10 +107,9 @@ Voice guidance should stay plain-language and practical.
 ## Optional Enhancements
 
 These are later-stage enhancements, not first-run requirements:
-- Todoist sync
-- MCP integrations
 - advanced automations
 - extra custom skills
+- third-party integrations
 
 ## File Naming
 

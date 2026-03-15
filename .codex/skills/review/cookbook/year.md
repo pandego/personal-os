@@ -12,9 +12,9 @@ Generate a comprehensive yearly retrospective through guided reflection.
 Before interactive flow, ensure gather-data.md collected:
 
 1. **All week reviews from the year** — `1-personal/01-week-reviews/02-done/*{YEAR}*.md`
-2. **Completed tasks for entire year** — Todoist `find-completed-tasks` with year range
+2. **Relevant notes and workspace material from the year**
 3. **Published content** — `3-content/*/03-published/`
-4. **Client work** — `2-business/02-clients/`
+4. **Client or business work that matters**
 5. **Previous year review** — for goal tracking
 
 ---

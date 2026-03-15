@@ -49,7 +49,6 @@ Start from `_template/` when opening a new client workspace so every client fold
 ## Commands / Skills That Matter Here
 | Command / Skill | Use |
 |-----------------|-----|
-| `/process-backlog` | turn rough business ideas/tasks into ready work |
 | `/get-started` | shape the system around your needs if the workspace is still fresh |
 | `/review` | reflect on business progress during weekly or yearly reviews |
 

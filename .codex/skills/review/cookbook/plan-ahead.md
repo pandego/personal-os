@@ -143,19 +143,16 @@ Format guidelines:
 
 ---
 
-## Step 5: Sync Recommendations
+## Step 5: Keep the Plan Lightweight
 
-After planning, optionally suggest:
+After planning, suggest keeping priorities visible in a simple way that fits the user.
 
-> "Want me to sync these priorities to Todoist?"
->
-> - **Yes** — Create/update tasks in PersonalOS Ready section
-> - **No** — Keep in review document only
+Examples:
+- leave them in the review document
+- copy them into a note or task app they already use
+- turn them into a short checklist elsewhere
 
-If yes:
-- Add new priority tasks to Todoist Ready section
-- Set due dates for next week items
-- Add labels if applicable
+Do not assume a specific external tool.
 
 ---
 

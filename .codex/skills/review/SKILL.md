@@ -1,6 +1,6 @@
 ---
 name: review
-description: Unified review skill for weekly and yearly reflections. Gathers completed tasks from ALL Todoist projects and KANBAN.md, processes transcripts/notes, and generates structured reviews with forward planning. Triggers on /review-week, /review-year, or general review requests.
+description: Unified review skill for weekly and yearly reflections. Gathers available notes, prior reviews, workspace material, and user input to generate structured reviews with forward planning.
 ---
 
 # Review Skill
@@ -25,29 +25,24 @@ If not explicit from trigger, ask:
 
 > "What type of review are we doing?"
 >
-> - **Week** — Reflect on the past week, plan the next
-> - **Year** — Annual retrospective and planning
-
-**Auto-detect hints:**
-- December/January + "review" → likely year
-- Friday/Sunday/Monday + "review" → likely week
-- Explicit `/review-week` or `/review-year` → use that
+> - **Week** - Reflect on the past week, plan the next
+> - **Year** - Annual retrospective and planning
 
 ### Step 2: Gather Input Source
 
 Use `AskUserQuestion`:
 
-> "Do you have notes or a transcript to include?"
+> "Do you have notes or material to include?"
 >
-> - **Yes, file path** — "Point me to the file"
-> - **Yes, paste it** — "I'll paste/dictate my notes"
-> - **No, just data** — "Build from Todoist + KANBAN only"
+> - **Yes, file path** - "Point me to the file"
+> - **Yes, paste it** - "I'll paste or dictate my notes"
+> - **No, just workspace data** - "Build from what is already in this folder"
 
 ### Step 3: Execute Workflow
 
 ```
 → Read cookbook/gather-data.md
-→ Execute data gathering (Todoist ALL projects + KANBAN + last review)
+→ Execute local-first data gathering (prior reviews, workspace material, transcript/notes)
 
 IF review_type = "week":
     → Read cookbook/week.md
@@ -71,10 +66,8 @@ Load these as needed:
 | `REVIEW_PATTERNS.md` | When formatting review content |
 | `prompts/week-questions.md` | Week review interactive questions |
 | `prompts/year-questions.md` | Year review interactive questions |
-| `templates/week-review.md` | Week output format (source of truth) |
-| `templates/year-review.md` | Year output format (source of truth) |
-
-**Note:** Templates define the output structure. The skill is self-contained.
+| `templates/week-review.md` | Week output format |
+| `templates/year-review.md` | Year output format |
 
 ---
 
@@ -85,18 +78,6 @@ Load these as needed:
 | Week | `1-personal/01-week-reviews/02-done/YYYY-MM-DD_WXX_week-review.md` |
 | Year | `1-personal/02-year-reviews/02-done/YYYY_year-review.md` |
 
-**Date conventions:**
-- Week review: Use Friday date + week number (e.g., `2026-01-24_W04_week-review.md`)
-- Year review: Use the year being reviewed (e.g., `2025_year-review.md`)
-
-**Week number calculation:**
-```bash
-uv run .claude/skills/review/tools/week_number.py --filename        # Current week
-uv run .claude/skills/review/tools/week_number.py 2026-01-24 --filename  # Specific date
-```
-
-Or inline: `uv run python -c "from datetime import datetime; d=datetime.now(); print(f'W{d.isocalendar()[1]:02d}')"`
-
 ---
 
 ## Output Summary
@@ -105,12 +86,11 @@ After completion, show:
 
 > **Review complete!**
 >
-> **Accomplishments:** X tasks completed across Y projects
 > **Key highlights:**
 > - [highlight 1]
 > - [highlight 2]
 >
-> **Next week priorities:**
+> **Next priorities:**
 > - [priority 1]
 > - [priority 2]
 >
@@ -123,7 +103,6 @@ After completion, show:
 
 | Error | Response |
 |-------|----------|
-| Todoist MCP not connected | "Run `/mcp` and connect the Todoist server first" |
 | No previous review found | Ask user for date range to cover |
-| Empty transcript | Proceed with data-only review, note in output |
-| KANBAN.md missing | Continue with Todoist data only |
+| Input file missing | Ask user to verify path |
+| Empty notes | Proceed with workspace-only review and note the limitation |

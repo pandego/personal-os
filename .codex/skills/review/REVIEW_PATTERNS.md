@@ -170,10 +170,10 @@ Learnings that don't connect to future behavior.
 
 ## Data Quality
 
-When pulling from Todoist/KANBAN:
+When pulling from multiple workspace sources:
 
-- **Deduplicate**: Same task in both sources = one mention
-- **Categorize**: Group by project or theme
+- **Deduplicate**: Same accomplishment mentioned in multiple places = one mention
+- **Categorize**: Group by project, domain, or theme
 - **Prioritize**: Lead with high-impact items
 - **Count**: Include numbers where meaningful ("12 tasks", "3 posts")
 

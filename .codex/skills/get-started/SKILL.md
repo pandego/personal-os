@@ -166,7 +166,7 @@ ls -la .codex .claude
 Confirm that:
 - `.codex/` exists
 - `.claude` points to `.codex`
-- local skills available are `process-backlog`, `review`, and `get-started`
+- local skills available are `review` and `get-started`
 
 Confirm: "Runtime layout verified."
 
@@ -258,7 +258,7 @@ After writing the file, give a short summary of:
 ## Optional later enhancements
 
 Only mention these at the end, not as core steps:
-- Todoist sync via `/process-backlog`
 - custom skills
 - deeper automation
-- MCP integrations
+- third-party integrations
+egrations

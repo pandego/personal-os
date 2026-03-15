@@ -47,9 +47,7 @@ Avoid turning this into a giant life-admin machine on day one.
 ## Optional later enhancements
 
 Once the basics feel useful, you can later explore:
-- `/process-backlog` for idea and task cleanup
 - `/review` for weekly or yearly reflection
-- Todoist sync
 - extra skills and automations
 - deeper AI workflows inside each domain
 
