@@ -10,7 +10,7 @@ This repo is meant to be shaped over time. You can rename folders, remove areas 
 |--------|--------|---------|
 | **Personal OS** | `1-personal/` | Reviews, knowledge, private reflection, and personal reference material |
 | **Business OS** | `2-business/` | Portfolio, outreach, client-facing work, and business systems |
-| **Content OS** | `3-content/` | Blog and LinkedIn writing workflows |
+| **Content OS** | `3-content/` | Blog and LinkedIn writing workflows, plus platform voice examples |
 
 ## Quick Start
 
@@ -22,7 +22,7 @@ Run:
 
 This guided flow helps you:
 - clarify what you want this Personal OS to help with
-- create a `VOICE.md` for how your assistant should sound
+- personalize `VOICE.md` for how your assistant should sound
 - optionally prepare the Python tooling used by some skills
 - generate a `MY_OS_BLUEPRINT.md` tailored to your needs
 
@@ -47,9 +47,9 @@ Avoid turning this into a giant life-admin machine on day one.
 ## Optional later enhancements
 
 Once the basics feel useful, you can later explore:
-- `/review` for weekly or yearly reflection
+- `review` for weekly or yearly reflection
+- `draft-content` for blog and LinkedIn drafting
 - extra skills and automations
-- deeper AI workflows inside each domain
 
 ## Tool-Agnostic Setup
 

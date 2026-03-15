@@ -104,9 +104,11 @@ This step keeps the setup light and understandable.
 
 ### Part A: Create `VOICE.md`
 
-Read `assets/VOICE_template.md` and generate a simple `VOICE.md` based on the communication answers from Step 1.
+Read `assets/VOICE_template.md` and rewrite `/VOICE.md` based on the communication answers from Step 1.
 
 The resulting file should be practical and plain-language, not overly literary or abstract.
+
+Make sure the personalized version removes the temporary onboarding note that tells the user to run `/get-started`.
 
 Save to `/VOICE.md`.
 
@@ -166,7 +168,7 @@ ls -la .codex .claude
 Confirm that:
 - `.codex/` exists
 - `.claude` points to `.codex`
-- local skills available are `review` and `get-started`
+- local skills include `get-started`, `review`, `draft-content`, `skill-creator`, and `mcp-builder`
 
 Confirm: "Runtime layout verified."
 

@@ -9,7 +9,7 @@
 1-personal/**/02-done/*.md
 1-personal/03-knowledge/**/*.md
 1-personal/03-knowledge/ebooks/**/*
-!1-personal/README-personal.md
+!1-personal/README_personal.md
 !1-personal/**/.gitkeep
 !1-personal/03-knowledge/ebooks/_template/
 !1-personal/03-knowledge/ebooks/_template/**
@@ -20,8 +20,7 @@
 3-content/**/01-drafts/*.md
 3-content/**/02-in-review/*.md
 3-content/**/03-published/*.md
-3-content/**/04-my-top/*.md
-3-content/**/05-swipe-files/*.md
+3-content/_voice-examples/**/*.md
 3-content/_external/
 3-content/02-linkedin/03-published/_*
 
@@ -55,6 +54,7 @@ KANBAN.md
 # -----------------------------------------------------------------------------
 !README.md
 !**/README.md
+!**/README_*.md
 
 # -----------------------------------------------------------------------------
 # Voice Files (personal writing style, not for public repo)

@@ -5,9 +5,10 @@ This is the canonical instruction file for all agentic runtimes used in this rep
 ## Runtime-Agnostic Contract
 
 1. Read this file first.
-2. Treat this file as source of truth for behavior, structure, and workflow.
+2. Treat this file as the source of truth for agent behavior and repository workflow.
 3. Use runtime-specific folders only for runtime-specific wiring, not for conflicting project rules.
 4. If a runtime requires its own rule filename, that file should redirect to `AGENTS.md` whenever possible.
+5. Keep the system adaptable. Suggest structural changes when helpful, but do not reorganize the user's workspace without clear reason.
 
 ## Runtime Redirects
 
@@ -17,11 +18,7 @@ Each runtime has its own config filename convention. The root instruction file f
 |---------|-----------|----------------|----------------|
 | Claude Code | `CLAUDE.md` | `@AGENTS.md` | `.claude/` |
 | Codex / GPT | `AGENTS.md` (direct) | - | `.codex/` |
-| Gemini CLI | `AGENTS.md` | - | `.gemini/` |
-| Cursor | `AGENTS.md` | - | `.cursor/` |
-| Windsurf | `AGENTS.md` | - | `.agents/` |
-| OpenCode | `AGENTS.md` | - | `.agents/` |
-| Generic / multi-runtime | `AGENTS.md` (direct) | - | `.agents/` |
+| Other runtimes | runtime-specific | redirect when supported | optional |
 
 If a runtime does not support redirect syntax, keep a short local rule file that says: "Follow `AGENTS.md` in this repository as source of truth."
 
@@ -36,7 +33,7 @@ The structure is meant to be adapted, not obeyed blindly.
 
 ## Getting Started
 
-Use `/get-started` to shape the system around the user before pushing advanced tooling or integrations.
+Use `/get-started` before pushing advanced tooling, automations, or integrations.
 
 The first-run experience should help the user:
 - clarify intent
@@ -52,8 +49,9 @@ These are the default local skills available in this Personal OS, in recommended
 
 | Skill | What it does |
 |-------|---------------|
-| `get-started` | first-run guided onboarding that helps the user clarify intent, set voice, optionally prepare Python tooling, and generate a tailored `MY_OS_BLUEPRINT.md` |
+| `get-started` | first-run guided onboarding that helps the user clarify intent, personalize voice, optionally prepare Python tooling, and generate a tailored `MY_OS_BLUEPRINT.md` |
 | `review` | reflection skill with two entry paths: `review-week` for weekly reviews and `review-year` for yearly reviews |
+| `draft-content` | draft content through one shared entrypoint that asks for the platform, applies the repo voice system, and can refresh platform voice guidance from examples |
 | `skill-creator` | create, improve, evaluate, and refine skills so the Personal OS can grow over time |
 | `mcp-builder` | design and build MCP servers and integrations when the user wants to extend the system with external capabilities |
 
@@ -78,12 +76,9 @@ Python setup is important, but should be presented in plain language to non-tech
 1-personal/         # private reflection, knowledge, personal reference
 2-business/         # business systems, portfolio, outreach, clients
 3-content/          # blog and LinkedIn workflows
-.agents/            # runtime-agnostic skills/commands/agents (shared across runtimes)
-.claude/            # Claude Code compatibility link/wiring
+.claude/            # Claude Code compatibility link to `.codex/`
 .codex/             # canonical runtime folder
-.cursor/            # Cursor-specific wiring (if used)
-.windsurf/          # Windsurf-specific wiring (if used)
-.opencode/          # OpenCode-specific wiring (if used)
+_system/            # scripts, templates, and supporting tooling
 ```
 
 ## Runtime-Specific Folder Rules
@@ -91,22 +86,44 @@ Python setup is important, but should be presented in plain language to non-tech
 - Keep shared logic and policy in repo docs (`AGENTS.md`, `README-*.md`, templates, guides), not locked into one runtime folder.
 - Keep runtime-only artifacts in their runtime folder.
 - If duplicate instructions exist across runtimes, consolidate them into shared docs where possible.
+- Prefer a single canonical runtime folder over duplicated parallel setups.
 
 ## Skills Architecture
 
 The canonical runtime folder is `.codex/`, with `.claude/` symlinked to it for compatibility.
 
-The repo intentionally keeps a minimal local skill set:
-- `review`
+The current local skills are:
 - `get-started`
+- `review`
+- `draft-content`
+- `skill-creator`
+- `mcp-builder`
 
 ## Voice System
 
 Before creating content, read:
 1. `VOICE.md`
-2. the relevant platform voice file if one exists
+2. the relevant platform voice file if it exists
+3. relevant examples from `3-content/_voice-examples/<platform>/` when useful
+
+`VOICE.md` is the default voice contract for this repo.
+
+- If `VOICE.md` still contains the onboarding note, treat it as a temporary default voice and recommend running `/get-started`.
+- After `/get-started`, `VOICE.md` should be rewritten as the user's personalized voice guide.
+- Platform voice files should be refined from the matching `_voice-examples` folder.
 
 Voice guidance should stay plain-language and practical.
+
+## Default Writing Rules
+
+Unless a personalized voice guide says otherwise:
+- avoid em dashes
+- avoid fake-contrast patterns like "it's not X, it's Y"
+- avoid stacked negation patterns like "it's not X, not Y, not Z, it's..."
+- avoid scolding or preachy phrasing like "stop doing this"
+- avoid generic ChatGPT-style rhetoric and inflated summaries
+- prefer plain, concrete, human language
+- keep writing useful before trying to sound clever
 
 ## Optional Enhancements
 
@@ -127,24 +144,14 @@ The repo tracks structure and documentation, while ignoring most genuinely priva
 
 ## Sub-Folder Documentation
 
-Each domain folder has its own `README-<folder>.md` with domain-specific instructions:
-- `3-content/README-content.md` - Content workflows and voice system
-- `2-business/README-business.md` - Business domain guidance
-- `1-personal/README-personal.md` - Personal reviews and knowledge
-- `_system/README-system.md` - Scripts, templates, and supporting tooling
-
-## Reference
-
-Claude-specific configuration patterns (skills, agents, hooks, `CLAUDE.md` structure):
-- `_system/docs/claude-code_best-practices.md`
-/README-personal.md` - Personal reviews and knowledge
-- `_system/README-system.md` - Scripts, templates, and supporting tooling
-
-## Reference
-
-Claude-specific configuration patterns (skills, agents, hooks, `CLAUDE.md` structure):
-- `_system/docs/claude-code_best-practices.md`
-ates, and supporting tooling
+Each domain folder has its own `README_<name>.md` with short, user-readable instructions:
+- `3-content/README_content.md` - content workflows and voice system
+- `3-content/01-blog/README_blog.md` - blog workflow
+- `3-content/02-linkedin/README_linkedin.md` - LinkedIn workflow
+- `3-content/_voice-examples/README_voice-examples.md` - voice example usage
+- `2-business/README_business.md` - business domain guidance
+- `1-personal/README_personal.md` - personal reviews and knowledge
+- `_system/README-system.md` - scripts, templates, and supporting tooling
 
 ## Reference
 
