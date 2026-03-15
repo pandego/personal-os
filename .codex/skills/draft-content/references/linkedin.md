@@ -5,11 +5,8 @@
 Write LinkedIn drafts to:
 - `3-content/02-linkedin/01-drafts/YYYY-MM-DD-slug.md`
 
-Voice examples for this platform live in:
-- `3-content/_voice-examples/linkedin/`
-
-Platform voice guide:
-- `3-content/02-linkedin/VOICE_linkedin.md`
+Voice samples for this platform live in:
+- `3-content/_voice-samples/linkedin/`
 
 ## Framing choices
 
@@ -54,11 +51,11 @@ visual: none | image | carousel | video
 
 ## Voice mode
 
-When refreshing `VOICE_linkedin.md`:
-- read examples from `3-content/_voice-examples/linkedin/`
+When working from LinkedIn voice samples:
+- read samples from `3-content/_voice-samples/linkedin/`
 - focus on repeated hook, pacing, value-delivery, and CTA patterns
-- keep the guide practical instead of abstract
-- write rules that another assistant could actually follow while drafting
+- keep the guidance practical instead of abstract
+- apply patterns another assistant could actually follow while drafting
 
 ## Quality rules
 

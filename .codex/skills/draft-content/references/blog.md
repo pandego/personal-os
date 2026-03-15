@@ -5,11 +5,8 @@
 Write blog drafts to:
 - `3-content/01-blog/01-drafts/YYYY-MM-DD-slug.md`
 
-Voice examples for this platform live in:
-- `3-content/_voice-examples/blog/`
-
-Platform voice guide:
-- `3-content/01-blog/VOICE_blog.md`
+Voice samples for this platform live in:
+- `3-content/_voice-samples/blog/`
 
 ## Blog modes
 
@@ -70,11 +67,11 @@ category: tutorial | explainer | deep-dive | case-study
 
 ## Voice mode
 
-When refreshing `VOICE_blog.md`:
-- read examples from `3-content/_voice-examples/blog/`
+When working from blog voice samples:
+- read samples from `3-content/_voice-samples/blog/`
 - focus on repeated opening, structure, explanation, and closing patterns
-- keep the guide practical instead of literary
-- write rules that another assistant could actually follow while drafting
+- keep the guidance practical instead of literary
+- apply patterns another assistant could actually follow while drafting
 
 ## Quality rules
 

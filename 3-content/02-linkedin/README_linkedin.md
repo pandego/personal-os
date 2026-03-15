@@ -12,8 +12,7 @@ Use this folder for LinkedIn post drafts and published post history.
 
 The assistant should use:
 1. `VOICE.md`
-2. `VOICE_linkedin.md` if it exists
-3. relevant examples from `../_voice-examples/linkedin/` when helpful
+2. relevant samples from `../_voice-samples/linkedin/` when helpful
 
 ## Keep it practical
 

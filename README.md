@@ -10,7 +10,7 @@ This repo is meant to be shaped over time. You can rename folders, remove areas 
 |--------|--------|---------|
 | **Personal OS** | `1-personal/` | Reviews, knowledge, private reflection, and personal reference material |
 | **Business OS** | `2-business/` | Portfolio, outreach, client-facing work, and business systems |
-| **Content OS** | `3-content/` | Blog and LinkedIn writing workflows, plus platform voice examples |
+| **Content OS** | `3-content/` | Blog and LinkedIn writing workflows, plus platform voice samples |
 
 ## Quick Start
 

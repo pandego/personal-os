@@ -17,7 +17,7 @@
 3-content/**/01-drafts/*.md
 3-content/**/02-in-review/*.md
 3-content/**/03-published/*.md
-3-content/_voice-examples/**/*.md
+3-content/_voice-samples/**/*.md
 3-content/_external/
 3-content/02-linkedin/03-published/_*
 

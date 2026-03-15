@@ -103,14 +103,13 @@ The current local skills are:
 
 Before creating content, read:
 1. `VOICE.md`
-2. the relevant platform voice file if it exists
-3. relevant examples from `3-content/_voice-examples/<platform>/` when useful
+2. relevant samples from `3-content/_voice-samples/<platform>/` when useful
 
 `VOICE.md` is the default voice contract for this repo.
 
 - If `VOICE.md` still contains the onboarding note, treat it as a temporary default voice and recommend running `/get-started`.
 - After `/get-started`, `VOICE.md` should be rewritten as the user's personalized voice guide.
-- Platform voice files should be refined from the matching `_voice-examples` folder.
+- Platform-level voice should come from the matching `_voice-samples` folder.
 
 Voice guidance should stay plain-language and practical.
 
@@ -148,7 +147,7 @@ Each domain folder has its own `README_<name>.md` with short, user-readable inst
 - `3-content/README_content.md` - content workflows and voice system
 - `3-content/01-blog/README_blog.md` - blog workflow
 - `3-content/02-linkedin/README_linkedin.md` - LinkedIn workflow
-- `3-content/_voice-examples/README_voice-examples.md` - voice example usage
+- `3-content/_voice-samples/README_voice-samples.md` - voice sample usage
 - `2-business/README_business.md` - business domain guidance
 - `2-business/02-outbound/README_outbound.md` - outbound workflow
 - `2-business/03-clients/_template/README_client-template.md` - client template guide
