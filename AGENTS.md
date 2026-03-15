@@ -46,14 +46,19 @@ The first-run experience should help the user:
 
 Do not force advanced integrations as part of the core first-run flow.
 
-## Core Skills
+## Available Skills
 
-| Skill | Purpose |
-|-------|---------|
-| `get-started` | guided onboarding that shapes the system around the user |
-| `review` | weekly and yearly review workflows |
+These are the default local skills available in this Personal OS, in recommended discovery order:
 
-These local skills are the canonical skill set in this repo.
+| Skill | What it does |
+|-------|---------------|
+| `get-started` | first-run guided onboarding that helps the user clarify intent, set voice, optionally prepare Python tooling, and generate a tailored `MY_OS_BLUEPRINT.md` |
+| `review-week` | weekly reflection workflow using the local `review` skill and its week review path |
+| `review-year` | yearly reflection workflow using the local `review` skill and its year review path |
+| `skill-creator` | create, improve, evaluate, and refine skills so the Personal OS can grow over time |
+| `mcp-builder` | design and build MCP servers and integrations when the user wants to extend the system with external capabilities |
+
+`get-started` should be treated as the main entrypoint.
 
 ## Python Environment
 
