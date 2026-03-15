@@ -82,8 +82,8 @@ Load these as needed:
 
 | Review Type | Output Path |
 |-------------|-------------|
-| Week | `3-personal/01-week-reviews/02-done/YYYY-MM-DD_WXX_week-review.md` |
-| Year | `3-personal/02-year-reviews/02-done/YYYY_year-review.md` |
+| Week | `1-personal/01-week-reviews/02-done/YYYY-MM-DD_WXX_week-review.md` |
+| Year | `1-personal/02-year-reviews/02-done/YYYY_year-review.md` |
 
 **Date conventions:**
 - Week review: Use Friday date + week number (e.g., `2026-01-24_W04_week-review.md`)

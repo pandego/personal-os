@@ -137,20 +137,20 @@ Confirm: "Python environment ready."
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-This step links external skills from submodules to `.claude/skills/`.
+This step verifies the runtime layout.
 
-Run the setup script:
+Run:
 
 ```bash
-uv run setup-symlinks
+ls -la .codex .claude
 ```
 
-This script:
-- Initializes git submodules if needed
-- Creates symlinks for skills from `_external/` repos
-- Optionally links private skills from `_internal/` (if present)
+Confirm that:
+- `.codex/` exists
+- `.claude` points to `.codex`
+- local skills available are `process-backlog`, `review`, and `setup-repo`
 
-Confirm: "Skills symlinked."
+Confirm: "Runtime layout verified."
 
 ---
 
@@ -207,14 +207,16 @@ Tell the user:
 
   [x] Voice configured (VOICE.md)
   [x] Python environment ready
-  [x] Skills symlinked
+  [x] Runtime layout verified
   [x] Todoist sync (if enabled)
 
   NEXT STEPS:
 
   Before drafting content, set up platform-specific voices:
 
-  1. Add your best posts to: 1-content/01-blog/04-my-top/
+  1. Add your best posts to: 3-content/01-blog/04-my-top/
   2. Run: /update-voice blog
   3. Then: /draft-blog [your topic]
+```
+pic]
 ```

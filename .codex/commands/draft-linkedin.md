@@ -5,7 +5,7 @@ allowed-tools: Read, Write
 
 # Create LinkedIn Draft
 
-Create a new LinkedIn post draft in `1-content/02-linkedin/01-drafts/`.
+Create a new LinkedIn post draft in `3-content/02-linkedin/01-drafts/`.
 
 ## Topic
 
@@ -13,8 +13,8 @@ $ARGUMENTS
 
 ## Steps
 
-1. **Read voice file**: `1-content/02-linkedin/VOICE_linkedin.md` (if exists)
-2. **Create file**: `1-content/02-linkedin/01-drafts/YYYY-MM-DD-<slug>.md`
+1. **Read voice file**: `3-content/02-linkedin/VOICE_linkedin.md` (if exists)
+2. **Create file**: `3-content/02-linkedin/01-drafts/YYYY-MM-DD-<slug>.md`
    - Use today's date
    - Generate slug from topic: lowercase, dashes, no special chars
 

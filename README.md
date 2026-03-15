@@ -6,9 +6,9 @@ A blueprint for managing your life with AI-powered workflows. **This is meant to
 
 | Domain | Folder | Purpose |
 |--------|--------|---------|
-| **Content OS** | `1-content/` | Blog, LinkedIn, X, YouTube content |
+| **Content OS** | `3-content/` | Blog, LinkedIn, X, YouTube content |
 | **Business OS** | `2-business/` | Consulting business, clients, Upwork |
-| **Personal OS** | `3-personal/` | Reviews, knowledge, data exports |
+| **Personal OS** | `1-personal/` | Reviews, knowledge, data exports |
 
 ## Quick Start
 
@@ -69,28 +69,11 @@ git update-index --no-skip-worktree Perafolder/
 
 ## Tool-Agnostic Setup
 
-This repo uses **symlinks** to remain agnostic to the agentic coding provider. The `.claude/` directory serves as the source of truth for commands, skills, and agent instructions.
+This repo uses `.codex/` as the canonical runtime folder, with `.claude/` symlinked to it for compatibility.
 
-To use with a different IDE (e.g., Windsurf):
+If you want to integrate another runtime later, point it at the same canonical commands and skills instead of duplicating configuration.
 
-```bash
-# Symlink skills
-mkdir -p .windsurf/skills
-ln -s .claude/skills .windsurf/skills
-
-# Symlink commands → workflows (must symlink contents, not directory)
-mkdir -p .windsurf/workflows && cd .windsurf/workflows
-ln -s ../../.claude/commands/* . && cd ../..
-```
-
-For agent instructions, `AGENTS.md` points to `CLAUDE.md`:
-
-```markdown
-# AGENTS.md
-@CLAUDE.md
-```
-
-This allows switching between Claude Code, Windsurf, Cursor, or any other agentic coding tool without duplicating configuration.
+For agent instructions, `AGENTS.md` and `CLAUDE.md` remain the project-level source of truth.
 
 ## License
 

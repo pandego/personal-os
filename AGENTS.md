@@ -30,9 +30,9 @@ The `.agents/` folder is the runtime-agnostic default for skills, commands, and 
 ## What This Is
 
 Personal OS is an AI-powered personal knowledge and content management system organized into three domains:
-- Content (`1-content/`): blog, LinkedIn, X, YouTube
+- Content (`3-content/`): blog, LinkedIn, X, YouTube
 - Business (`2-business/`): portfolio, clients, outbound
-- Personal (`3-personal/`): reviews, knowledge
+- Personal (`1-personal/`): reviews, knowledge
 
 It integrates with Todoist for task capture and Obsidian for visual Kanban management.
 
@@ -44,10 +44,11 @@ It integrates with Todoist for task capture and Obsidian for visual Kanban manag
 
 | Skill | Purpose |
 |-------|---------|
-| `setup-repo` | First-time setup (voice config, Python env, symlinks, Todoist MCP) |
+| `setup-repo` | First-time setup (voice config, Python env, Todoist MCP) |
 | `process-backlog` | Sync `KANBAN.md` ↔ Todoist, clean up messy tasks |
+| `review` | Weekly and yearly review workflows |
 
-Additional skills (content, business, utilities) are loaded dynamically per runtime. Run `/prime` or `/list-all-skills` to see them all.
+These three local skills are the canonical skill set in this repo.
 
 ## Python Environment
 
@@ -63,9 +64,9 @@ uv run pytest
 ## Architecture
 
 ```text
-1-content/           # Content OS: platform-specific content workflows
+3-content/           # Content OS: platform-specific content workflows
 2-business/          # Business OS: portfolio, clients, outbound
-3-personal/          # Personal OS: reviews, knowledge (private)
+1-personal/          # Personal OS: reviews, knowledge (private)
 .agents/             # Runtime-agnostic skills/commands/agents (shared across runtimes)
 .claude/             # Claude Code-specific wiring
 .codex/              # Codex/GPT-specific wiring
@@ -104,27 +105,22 @@ Use `_system/templates/TEMPLATE_SKILL.md` as base:
 2. Fill Purpose, Variables, Instructions, Workflow, Cookbook.
 3. Keep core logic runtime-agnostic. Add runtime-specific wiring only where needed.
 
-## Skills Architecture (Symlinks)
+## Skills Architecture
 
-Many skills in `.claude/skills/` are symbolic links pointing to external submodules or private repos.
+The canonical runtime folder is `.codex/`, with `.claude/` symlinked to it for compatibility.
 
-Source locations:
-- `_external/anthropic-skills/skills/` — docx, pdf, pptx, xlsx, brand-guidelines, skill-creator
-- `_external/disler-fork-terminal-skill/.claude/skills/` — fork-terminal
-- `_external/pandego-parallel-thread-skill/.claude/skills/` — pthd
-- `_internal/private-skills/.claude/skills/` — blog-content, linkedin-content, brand-guidelines-datavengers, datavengers-proposal
+The repo intentionally keeps a minimal local skill set:
+- `process-backlog`
+- `review`
+- `setup-repo`
 
-Local skills (not symlinked): `process-backlog`, `review`, `setup-repo`
-
-Setup: run `uv run setup-symlinks` after cloning (or run `/setup-repo`). Script is idempotent.
-
-Editing symlinked skills: changes are applied in the source repo; use `git status` there to track/commit.
+No external skill symlink setup is required.
 
 ## Voice System
 
 Before creating content, read:
 1. `VOICE.md` (universal voice and identity)
-2. Platform guide (example: `1-content/01-blog/VOICE_blog.md`)
+2. Platform guide (example: `3-content/01-blog/VOICE_blog.md`)
 
 Core patterns: authority via specifics, no corporate jargon, statement hooks, practitioner focus.
 
@@ -154,9 +150,9 @@ Templates and voice guides are versioned.
 ## Sub-Folder Documentation
 
 Each domain folder has its own `README-<folder>.md` with domain-specific instructions:
-- `1-content/README-content.md` — Content workflows, voice system, platform structure
+- `3-content/README-content.md` — Content workflows, voice system, platform structure
 - `2-business/README-business.md` — Business domain
-- `3-personal/README-personal.md` — Personal reviews and knowledge
+- `1-personal/README-personal.md` — Personal reviews and knowledge
 - `_system/README-system.md` — Scripts, templates, MCP servers
 - `_internal/README-internal.md` — Internal resources
 

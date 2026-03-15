@@ -15,10 +15,10 @@ $ARGUMENTS - Required platform: `blog` | `linkedin` | `twitter` | `youtube`
 
 | Platform  | Content Folders | Voice File |
 |-----------|----------------|------------|
-| blog      | `1-content/01-blog/04-my-top/` AND `1-content/01-blog/05-swipe-files/` | `1-content/01-blog/VOICE_blog.md` |
-| linkedin  | `1-content/02-linkedin/04-my-top/` AND `1-content/02-linkedin/05-swipe-files/` | `1-content/02-linkedin/VOICE_linkedin.md` |
-| twitter   | `1-content/03-twitter/04-my-top/` AND `1-content/03-twitter/05-swipe-files/` | `1-content/03-twitter/VOICE_twitter.md` |
-| youtube   | `1-content/04-youtube/shorts/` AND `1-content/04-youtube/videos/` | `1-content/04-youtube/VOICE_youtube.md` |
+| blog      | `3-content/01-blog/04-my-top/` AND `3-content/01-blog/05-swipe-files/` | `3-content/01-blog/VOICE_blog.md` |
+| linkedin  | `3-content/02-linkedin/04-my-top/` AND `3-content/02-linkedin/05-swipe-files/` | `3-content/02-linkedin/VOICE_linkedin.md` |
+| twitter   | `3-content/03-twitter/04-my-top/` AND `3-content/03-twitter/05-swipe-files/` | `3-content/03-twitter/VOICE_twitter.md` |
+| youtube   | `3-content/04-youtube/shorts/` AND `3-content/04-youtube/videos/` | `3-content/04-youtube/VOICE_youtube.md` |
 
 ## Process
 

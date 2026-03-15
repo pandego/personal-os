@@ -197,7 +197,7 @@ Reference `../REVIEW_PATTERNS.md` for quality standards:
 
 ## Output
 
-Write to: `3-personal/01-week-reviews/02-done/YYYY-MM-DD_WXX_week-review.md`
+Write to: `1-personal/01-week-reviews/02-done/YYYY-MM-DD_WXX_week-review.md`
 
 **Naming convention:**
 - Date: Use Friday of the reviewed week

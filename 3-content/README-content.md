@@ -59,7 +59,7 @@ Use `/update-voice <platform>` to analyze both and update the `VOICE_*.md` file.
 - Use date format: `YYYY-MM-DD-slug.md`
 
 ## Quality Checklist
-- [ ] Voice matches `VOICE.md` and platform-specific in `1-content/<platform>/VOICE_<platform>` patterns
+- [ ] Voice matches `VOICE.md` and platform-specific in `3-content/<platform>/VOICE_<platform>` patterns
 - [ ] Hook is specific and compelling
 - [ ] Technical claims have support
 - [ ] Code examples are runnable

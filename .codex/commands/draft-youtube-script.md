@@ -5,7 +5,7 @@ allowed-tools: Read, Write, AskUserQuestion
 
 # Create YouTube Script Draft
 
-Create a new YouTube script draft in `1-content/04-youtube/01-drafts/`.
+Create a new YouTube script draft in `3-content/04-youtube/01-drafts/`.
 
 ## Topic
 
@@ -19,9 +19,9 @@ $ARGUMENTS
    - **deep-dive**: Comprehensive explorations
    - **case-study**: "How I built X", results-focused
 
-2. **Read voice file**: `1-content/04-youtube/VOICE_youtube.md` (if exists)
+2. **Read voice file**: `3-content/04-youtube/VOICE_youtube.md` (if exists)
 
-3. **Create file**: `1-content/04-youtube/01-drafts/YYYY-MM-DD-<slug>.md`
+3. **Create file**: `3-content/04-youtube/01-drafts/YYYY-MM-DD-<slug>.md`
    - Use today's date
    - Generate slug from topic: lowercase, dashes, no special chars
 

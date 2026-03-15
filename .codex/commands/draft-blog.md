@@ -5,7 +5,7 @@ allowed-tools: Read, Write, AskUserQuestion
 
 # Create Blog Draft
 
-Create a new blog post draft in `1-content/01-blog/01-drafts/`.
+Create a new blog post draft in `3-content/01-blog/01-drafts/`.
 
 ## Topic
 
@@ -19,9 +19,9 @@ $ARGUMENTS
    - **deep-dive**: Comprehensive explorations
    - **case-study**: "How I built X", results-focused
 
-2. **Read voice file**: `1-content/01-blog/VOICE_blog.md` (if exists)
+2. **Read voice file**: `3-content/01-blog/VOICE_blog.md` (if exists)
 
-3. **Create file**: `1-content/01-blog/01-drafts/YYYY-MM-DD-<slug>.md`
+3. **Create file**: `3-content/01-blog/01-drafts/YYYY-MM-DD-<slug>.md`
    - Use today's date
    - Generate slug from topic: lowercase, dashes, no special chars
 

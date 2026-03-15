@@ -5,7 +5,7 @@ allowed-tools: Read, Write
 
 # Create Tweet Draft
 
-Create four tweet drafts in `1-content/03-twitter/01-drafts/`.
+Create four tweet drafts in `3-content/03-twitter/01-drafts/`.
 
 ## Topic
 
@@ -13,9 +13,9 @@ $ARGUMENTS
 
 ## Steps
 
-1. **Read voice file**: `1-content/03-twitter/VOICE_twitter.md` (if exists)
+1. **Read voice file**: `3-content/03-twitter/VOICE_twitter.md` (if exists)
 
-2. **Create file**: `1-content/03-twitter/01-drafts/YYYY-MM-DD-<slug>.md`
+2. **Create file**: `3-content/03-twitter/01-drafts/YYYY-MM-DD-<slug>.md`
    - Use today's date
    - Generate slug from topic: lowercase, dashes, no special chars
 

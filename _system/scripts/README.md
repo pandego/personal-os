@@ -9,7 +9,6 @@ Utility scripts for Personal OS operations. Run with `uv run <script-name>`.
 | `clean_all.py` | `uv run clean` | **Master command** - Clean git + Python environment |
 | `clean_git.py` | `uv run clean-git` | Clean Dropbox conflicted copies from `.git/` |
 | `clean_env.py` | `uv run clean-env` | Clean and rebuild Python virtual environment |
-| `setup_symlinks.py` | `uv run setup-symlinks` | Create symlinks for external skills |
 
 ---
 

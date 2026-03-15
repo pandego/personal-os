@@ -11,7 +11,7 @@ Collect all completion data from Todoist (ALL projects), KANBAN.md, and the last
 ### For Week Reviews
 
 ```
-Glob: 3-personal/01-week-reviews/02-done/*.md
+Glob: 1-personal/01-week-reviews/02-done/*.md
 Sort by date descending
 Read the most recent one
 Extract: date, next week priorities, any unfinished items
@@ -28,9 +28,9 @@ Extract: date, next week priorities, any unfinished items
 ### For Year Reviews
 
 ```
-Glob: 3-personal/02-year-reviews/02-done/*.md
+Glob: 1-personal/02-year-reviews/02-done/*.md
 Find review for previous year if exists
-Also gather: 3-personal/01-week-reviews/02-done/*{YEAR}*.md (all week reviews for the year)
+Also gather: 1-personal/01-week-reviews/02-done/*{YEAR}*.md (all week reviews for the year)
 ```
 
 ---
