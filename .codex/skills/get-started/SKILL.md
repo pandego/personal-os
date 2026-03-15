@@ -1,6 +1,6 @@
 ---
-name: setup-repo
-description: Interactive setup workflow for Personal OS repository. Use when user explicitly asks to set up the repo, initialize Personal OS, or run first-time setup. Guides through voice configuration, Python environment setup (checking for uv), skill symlinks, and optional Todoist MCP configuration for task/idea sync.
+name: get-started
+description: Friendly guided setup workflow for Personal OS. Use when the user wants to get started, initialize Personal OS, or run first-time setup. Guides through voice configuration, Python environment setup (checking for uv), runtime layout verification, and optional Todoist MCP configuration for task and idea sync.
 ---
 
 # Personal OS Setup
@@ -148,7 +148,7 @@ ls -la .codex .claude
 Confirm that:
 - `.codex/` exists
 - `.claude` points to `.codex`
-- local skills available are `process-backlog`, `review`, and `setup-repo`
+- local skills available are `process-backlog`, `review`, and `get-started`
 
 Confirm: "Runtime layout verified."
 

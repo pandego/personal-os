@@ -44,7 +44,7 @@ It integrates with Todoist for task capture and Obsidian for visual Kanban manag
 
 | Skill | Purpose |
 |-------|---------|
-| `setup-repo` | First-time setup (voice config, Python env, Todoist MCP) |
+| `get-started` | First-time guided setup (voice config, Python env, Todoist MCP) |
 | `process-backlog` | Sync `KANBAN.md` ↔ Todoist, clean up messy tasks |
 | `review` | Weekly and yearly review workflows |
 
@@ -112,7 +112,7 @@ The canonical runtime folder is `.codex/`, with `.claude/` symlinked to it for c
 The repo intentionally keeps a minimal local skill set:
 - `process-backlog`
 - `review`
-- `setup-repo`
+- `get-started`
 
 No external skill symlink setup is required.
 
@@ -160,3 +160,4 @@ Each domain folder has its own `README-<folder>.md` with domain-specific instruc
 
 Claude-specific configuration patterns (skills, agents, hooks, `CLAUDE.md` structure):
 - `_system/docs/claude-code_best-practices.md`
+es.md`

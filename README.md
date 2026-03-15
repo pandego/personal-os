@@ -15,7 +15,7 @@ A blueprint for managing your life with AI-powered workflows. **This is meant to
 Run the setup skill:
 
 ```bash
-/setup-repo
+/get-started
 ```
 
 This guides you through:
