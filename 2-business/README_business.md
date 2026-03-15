@@ -5,8 +5,10 @@ This area is for business-facing work that should stay separate from personal re
 ## What goes here
 
 - `01-portfolio/` - portfolio assets, proof, and supporting material
-- `02-outbound/` - outreach, newsletters, and business development material
+- `02-outbound/` - outreach and business development material
 - `03-clients/` - client-specific workspaces
+
+`02-outbound/` is intentionally broad. Add your own structure only when it becomes useful.
 
 ## Skills that may matter here
 

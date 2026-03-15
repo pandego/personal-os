@@ -33,7 +33,6 @@
 2-business/02-outbound/**/*
 !2-business/02-outbound/**/.gitkeep
 !2-business/02-outbound/
-!2-business/02-outbound/*/
 
 # Ignore all clients except the template
 2-business/03-clients/
