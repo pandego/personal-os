@@ -8,6 +8,9 @@ Write LinkedIn drafts to:
 Voice examples for this platform live in:
 - `3-content/_voice-examples/linkedin/`
 
+Platform voice guide:
+- `3-content/02-linkedin/VOICE_linkedin.md`
+
 ## Framing choices
 
 Choose or confirm the best fit:
@@ -48,6 +51,14 @@ visual: none | image | carousel | video
 
 <!-- IMAGE | VIDEO | CAROUSEL: [description if a visual would improve the post] -->
 ```
+
+## Voice mode
+
+When refreshing `VOICE_linkedin.md`:
+- read examples from `3-content/_voice-examples/linkedin/`
+- focus on repeated hook, pacing, value-delivery, and CTA patterns
+- keep the guide practical instead of abstract
+- write rules that another assistant could actually follow while drafting
 
 ## Quality rules
 
