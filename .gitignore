@@ -173,7 +173,6 @@ ipython_config.py
 .idea/
 .vscode/
 .claude/
-.codex/
 .cloud/
 .obsidian
 .cursorignore
