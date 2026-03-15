@@ -6,9 +6,9 @@ A blueprint for managing your life with AI-powered workflows. **This is meant to
 
 | Domain | Folder | Purpose |
 |--------|--------|---------|
-| **Content OS** | `3-content/` | Blog, LinkedIn, X, YouTube content |
-| **Business OS** | `2-business/` | Consulting business, clients, Upwork |
 | **Personal OS** | `1-personal/` | Reviews, knowledge, data exports |
+| **Business OS** | `2-business/` | Consulting business, clients, Upwork |
+| **Content OS** | `3-content/` | Blog and LinkedIn content |
 
 ## Quick Start
 

@@ -9,7 +9,7 @@ Analyze top content (my-top + swipe-files) for a specific platform and update it
 
 ## Arguments
 
-$ARGUMENTS - Required platform: `blog` | `linkedin` | `twitter` | `youtube`
+$ARGUMENTS - Required platform: `blog` | `linkedin`
 
 ## Platform Locations
 
@@ -17,20 +17,17 @@ $ARGUMENTS - Required platform: `blog` | `linkedin` | `twitter` | `youtube`
 |-----------|----------------|------------|
 | blog      | `3-content/01-blog/04-my-top/` AND `3-content/01-blog/05-swipe-files/` | `3-content/01-blog/VOICE_blog.md` |
 | linkedin  | `3-content/02-linkedin/04-my-top/` AND `3-content/02-linkedin/05-swipe-files/` | `3-content/02-linkedin/VOICE_linkedin.md` |
-| twitter   | `3-content/03-twitter/04-my-top/` AND `3-content/03-twitter/05-swipe-files/` | `3-content/03-twitter/VOICE_twitter.md` |
-| youtube   | `3-content/04-youtube/shorts/` AND `3-content/04-youtube/videos/` | `3-content/04-youtube/VOICE_youtube.md` |
 
 ## Process
 
 1. **Validate platform argument**
-   - Must be one of: blog, linkedin, twitter, youtube
+   - Must be one of: blog, linkedin
    - If not provided or invalid, ask user which platform to analyze
 
 2. **Read existing voice file** from platform location (if exists)
 
 3. **Read all content** from platform's folder(s)
    - Use Glob to find all `.md` files in both `04-my-top/` AND `05-swipe-files/`
-   - For YouTube: read from both `shorts/` AND `videos/`
 
 4. **Analyze content for patterns**:
    - **Voice and tone**: Authoritative vs. casual balance
@@ -161,3 +158,12 @@ description: "How I write on {Platform}"
 - If no swipe files exist, create a stub voice file and notify the user
 - Preserve any manually-added content that doesn't conflict with analyzed patterns
 - Focus on patterns that appear in 2+ samples (not one-offs)
+ 2}
+```
+
+## Notes
+
+- If no swipe files exist, create a stub voice file and notify the user
+- Preserve any manually-added content that doesn't conflict with analyzed patterns
+- Focus on patterns that appear in 2+ samples (not one-offs)
+ patterns that appear in 2+ samples (not one-offs)

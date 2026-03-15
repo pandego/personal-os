@@ -121,8 +121,6 @@ Use consistent tags:
 |-----|--------|
 | `#blog-idea` | Blog content |
 | `#linkedin-idea` | LinkedIn content |
-| `#tweet-idea` | Twitter/X content |
-| `#youtube-idea` | YouTube content |
 | `#repo-improvement` | PersonalOS codebase |
 | `#business-task` | Client/portfolio work |
 | `#personal-task` | Personal items |

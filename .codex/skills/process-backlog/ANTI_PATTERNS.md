@@ -72,7 +72,7 @@ Validation rules for task quality. A task failing any of these should not move t
 **Fix:** Add appropriate domain tag.
 
 Valid tags:
-- `#blog-idea`, `#linkedin-idea`, `#tweet-idea`, `#youtube-idea`
+- `#blog-idea`, `#linkedin-idea`
 - `#repo-improvement`
 - `#business-task`
 - `#personal-task`

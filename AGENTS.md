@@ -30,7 +30,7 @@ The `.agents/` folder is the runtime-agnostic default for skills, commands, and 
 ## What This Is
 
 Personal OS is an AI-powered personal knowledge and content management system organized into three domains:
-- Content (`3-content/`): blog, LinkedIn, X, YouTube
+- Content (`3-content/`): blog and LinkedIn
 - Business (`2-business/`): portfolio, clients, outbound
 - Personal (`1-personal/`): reviews, knowledge
 

@@ -1,6 +1,6 @@
 # Content Domain
 
-All content creation for Blog, LinkedIn, Twitter/X, and YouTube.
+All content creation for Blog and LinkedIn.
 
 ## Structure
 - `01-blog/` - Long-form articles
@@ -9,8 +9,6 @@ All content creation for Blog, LinkedIn, Twitter/X, and YouTube.
   - `05-swipe-files/` - External examples (inspiration)
   - Voice: VOICE_blog.md
 - `02-linkedin/` - Professional posts (same structure as blog)
-- `03-twitter/` - Single tweets and threads (same structure)
-- `04-youtube/` - Scripts and metadata
 - `_external/` - Media and external assets
 
 ## Idea Capture
@@ -34,7 +32,7 @@ Each platform follows this pattern:
 ```
 
 ## Before Creating Content
-**ALWAYS read `VOICE.md` and `VOICE_<platform>.md` first.** Apply voice patterns to ALL content.
+**ALWAYS read `VOICE.md` and `VOICE_<platform>.md` first.** Apply voice patterns to all content.
 
 ## Voice Building
 Voice is built from two sources per platform:
@@ -48,8 +46,6 @@ Use `/update-voice <platform>` to analyze both and update the `VOICE_*.md` file.
 |---------|--------|
 | `/draft-blog` | Create blog draft |
 | `/draft-linkedin` | Create LinkedIn draft |
-| `/draft-tweet` | Create single tweet draft |
-| `/draft-youtube-script` | Create YouTube script |
 | `/update-voice` | Analyze content and update voice guide |
 
 ## Content Workflow
@@ -59,7 +55,7 @@ Use `/update-voice <platform>` to analyze both and update the `VOICE_*.md` file.
 - Use date format: `YYYY-MM-DD-slug.md`
 
 ## Quality Checklist
-- [ ] Voice matches `VOICE.md` and platform-specific in `3-content/<platform>/VOICE_<platform>` patterns
+- [ ] Voice matches `VOICE.md` and platform-specific `3-content/<platform>/VOICE_<platform>` patterns
 - [ ] Hook is specific and compelling
 - [ ] Technical claims have support
 - [ ] Code examples are runnable
