@@ -1,71 +1,57 @@
 # Personal OS
 
-A blueprint for managing your life with AI-powered workflows. **This is meant to be customized**—fork it, rename folders, add domains, remove what you don't need. That's why it's called *Personal* OS.
+A starter folder for building a personal AI operating system around your real life, work, and priorities.
+
+This repo is meant to be shaped over time. You can rename folders, remove areas you do not need, keep only what is useful, and let your assistant work inside one clear workspace that reflects how you actually organize things.
 
 ## Domains
 
 | Domain | Folder | Purpose |
 |--------|--------|---------|
-| **Personal OS** | `1-personal/` | Reviews, knowledge, data exports |
-| **Business OS** | `2-business/` | Consulting business, clients, Upwork |
-| **Content OS** | `3-content/` | Blog and LinkedIn content |
+| **Personal OS** | `1-personal/` | Reviews, knowledge, private reflection, and personal reference material |
+| **Business OS** | `2-business/` | Portfolio, outreach, client-facing work, and business systems |
+| **Content OS** | `3-content/` | Blog and LinkedIn writing workflows |
 
 ## Quick Start
 
-Run the setup skill:
+Run:
 
 ```bash
 /get-started
 ```
 
-This guides you through:
-- **Voice configuration** — your writing style
-- **Python environment** — uses `uv`
-- **Todoist MCP** — optional, for task/idea sync
+This guided flow helps you:
+- clarify what you want this Personal OS to help with
+- create a `VOICE.md` for how your assistant should sound
+- optionally prepare the Python tooling used by some skills
+- generate a `MY_OS_BLUEPRINT.md` tailored to your needs
 
-## Todoist Integration
+## What this folder is for
 
-By default, Personal OS syncs with Todoist for idea capture and task management.
+Think of this repo as the home folder for your assistant.
 
-**Manual setup** (if not using the wizard):
+The better this folder reflects your real life and work, the more useful the assistant becomes.
 
-```bash
-claude mcp add --transport http todoist https://ai.todoist.net/mcp
-```
+You do **not** need to use every folder, every workflow, or every feature. Start simple. Shape the system around what you actually need.
 
-Then launch Claude, run `/mcp`, and authenticate with Todoist.
+## How to approach it
 
-**Required**: Create a project called **"PersonalOS"** in Todoist with **board view** enabled. Use `/process-backlog` to sync with local `KANBAN.md`.
+A good first version usually looks like this:
+1. decide what you want help with first
+2. keep only the domains that matter right now
+3. add real material slowly
+4. improve structure only when it helps you
 
-## Obsidian
+Avoid turning this into a giant life-admin machine on day one.
 
-Open the repo in Obsidian, as a Vault, and the [Kanban plugin](https://github.com/mgmeyers/obsidian-kanban) to start using it for kanban-style idea management. The `KANBAN.md` file syncs with your Todoist PersonalOS project every time you run `/process-backlog`.
+## Optional later enhancements
 
-### Locally ignoring tracked files (e.g., `KANBAN.md`)
-
-If you want to keep a tracked file in the repo but ignore your local edits (e.g., personal tweaks to `KANBAN.md`), mark it skip-worktree locally:
-
-```bash
-git update-index --skip-worktree KANBAN.md
-```
-
-Status will now hide changes to that file. To resume tracking later:
-
-```bash
-git update-index --no-skip-worktree KANBAN.md
-```
-
-For a folder (e.g., `Perafolder`), use the same flag against the directory:
-
-```bash
-git update-index --skip-worktree Perafolder/
-```
-
-Re-enable tracking for the folder with:
-
-```bash
-git update-index --no-skip-worktree Perafolder/
-```
+Once the basics feel useful, you can later explore:
+- `/process-backlog` for idea and task cleanup
+- `/review` for weekly or yearly reflection
+- Todoist sync
+- extra skills and automations
+- deeper AI workflows inside each domain
 
 ## Tool-Agnostic Setup
 
@@ -74,6 +60,10 @@ This repo uses `.codex/` as the canonical runtime folder, with `.claude/` symlin
 If you want to integrate another runtime later, point it at the same canonical commands and skills instead of duplicating configuration.
 
 For agent instructions, `AGENTS.md` and `CLAUDE.md` remain the project-level source of truth.
+
+## Obsidian
+
+You can open the repo in Obsidian as a vault if that helps you browse and edit the folder more comfortably.
 
 ## License
 

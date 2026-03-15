@@ -50,7 +50,7 @@ Start from `_template/` when opening a new client workspace so every client fold
 | Command / Skill | Use |
 |-----------------|-----|
 | `/process-backlog` | turn rough business ideas/tasks into ready work |
-| `/get-started` | first-time repo setup if the workspace is still fresh |
+| `/get-started` | shape the system around your needs if the workspace is still fresh |
 | `/review` | reflect on business progress during weekly or yearly reviews |
 
 ## Definition of Done

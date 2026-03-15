@@ -6,7 +6,7 @@ This is the canonical instruction file for all agentic runtimes used in this rep
 
 1. Read this file first.
 2. Treat this file as source of truth for behavior, structure, and workflow.
-3. Use runtime-specific folders only for runtime-specific wiring (commands, adapters, local settings), not for conflicting project rules.
+3. Use runtime-specific folders only for runtime-specific wiring, not for conflicting project rules.
 4. If a runtime requires its own rule filename, that file should redirect to `AGENTS.md` whenever possible.
 
 ## Runtime Redirects
@@ -16,43 +16,49 @@ Each runtime has its own config filename convention. The root instruction file f
 | Runtime | Root file | Redirect syntax | Runtime folder |
 |---------|-----------|----------------|----------------|
 | Claude Code | `CLAUDE.md` | `@AGENTS.md` | `.claude/` |
-| Codex / GPT | `AGENTS.md` (direct) | — | `.codex/` |
-| Gemini CLI | `AGENTS.md` | — | `.gemini/` |
-| Cursor | `AGENTS.md` | — | `.cursor/` |
-| Windsurf | `AGENTS.md` | — | `.agents/` |
-| OpenCode | `AGENTS.md` | — | `.agents/` |
-| Generic / multi-runtime | `AGENTS.md` (direct) | — | `.agents/` |
+| Codex / GPT | `AGENTS.md` (direct) | - | `.codex/` |
+| Gemini CLI | `AGENTS.md` | - | `.gemini/` |
+| Cursor | `AGENTS.md` | - | `.cursor/` |
+| Windsurf | `AGENTS.md` | - | `.agents/` |
+| OpenCode | `AGENTS.md` | - | `.agents/` |
+| Generic / multi-runtime | `AGENTS.md` (direct) | - | `.agents/` |
 
 If a runtime does not support redirect syntax, keep a short local rule file that says: "Follow `AGENTS.md` in this repository as source of truth."
 
-The `.agents/` folder is the runtime-agnostic default for skills, commands, and agents that should work across all runtimes.
-
 ## What This Is
 
-Personal OS is an AI-powered personal knowledge and content management system organized into three domains:
-- Content (`3-content/`): blog and LinkedIn
-- Business (`2-business/`): portfolio, clients, outbound
-- Personal (`1-personal/`): reviews, knowledge
+Personal OS is a personal AI workspace organized into three default domains:
+- Personal (`1-personal/`) - reviews, knowledge, and private reference material
+- Business (`2-business/`) - portfolio, outreach, and client-facing work
+- Content (`3-content/`) - blog and LinkedIn workflows
 
-It integrates with Todoist for task capture and Obsidian for visual Kanban management.
+The structure is meant to be adapted, not obeyed blindly.
 
 ## Getting Started
 
-**Run `/prime` at the start of every session.** This bootstraps the agent with repo context and discovers all available skills.
+Use `/get-started` to shape the system around the user before pushing advanced tooling or integrations.
+
+The first-run experience should help the user:
+- clarify intent
+- define how the assistant should sound
+- decide whether to prepare optional Python tooling
+- generate a tailored `MY_OS_BLUEPRINT.md`
+
+Do not force advanced integrations as part of the core first-run flow.
 
 ## Core Skills
 
 | Skill | Purpose |
 |-------|---------|
-| `get-started` | First-time guided setup (voice config, Python env, Todoist MCP) |
-| `process-backlog` | Sync `KANBAN.md` ↔ Todoist, clean up messy tasks |
-| `review` | Weekly and yearly review workflows |
+| `get-started` | guided onboarding that shapes the system around the user |
+| `process-backlog` | turn rough ideas/tasks into cleaner, ready work |
+| `review` | weekly and yearly review workflows |
 
 These three local skills are the canonical skill set in this repo.
 
 ## Python Environment
 
-**CRITICAL: ALWAYS use `uv run` for Python execution. NEVER use `python` or `python3` directly.**
+Use `uv` for Python-related commands.
 
 ```bash
 uv sync
@@ -61,49 +67,27 @@ uv run python -c "..."
 uv run pytest
 ```
 
+Python setup is important, but should be presented in plain language to non-technical users.
+
 ## Architecture
 
 ```text
-3-content/           # Content OS: platform-specific content workflows
-2-business/          # Business OS: portfolio, clients, outbound
-1-personal/          # Personal OS: reviews, knowledge (private)
-.agents/             # Runtime-agnostic skills/commands/agents (shared across runtimes)
-.claude/             # Claude Code-specific wiring
-.codex/              # Codex/GPT-specific wiring
-.cursor/             # Cursor-specific wiring (if used)
-.windsurf/           # Windsurf-specific wiring (if used)
-.opencode/           # OpenCode-specific wiring (if used)
+1-personal/         # private reflection, knowledge, personal reference
+2-business/         # business systems, portfolio, outreach, clients
+3-content/          # blog and LinkedIn workflows
+.agents/            # runtime-agnostic skills/commands/agents (shared across runtimes)
+.claude/            # Claude Code compatibility link/wiring
+.codex/             # canonical runtime folder
+.cursor/            # Cursor-specific wiring (if used)
+.windsurf/          # Windsurf-specific wiring (if used)
+.opencode/          # OpenCode-specific wiring (if used)
 ```
 
 ## Runtime-Specific Folder Rules
 
 - Keep shared logic and policy in repo docs (`AGENTS.md`, `README-*.md`, templates, guides), not locked into one runtime folder.
-- Place runtime-agnostic skills and commands in `.agents/` so any runtime can consume them.
-- Keep runtime-only artifacts (adapters, hooks, settings) in their runtime folder:
-  - `.claude/` — commands, agents, skills, settings
-  - `.codex/` — skills, agents
-  - `.cursor/` — agents
-  - `.windsurf/` — skills, workflows, rules
-  - `.opencode/` — skills, commands, agents
-- If duplicate instructions exist across runtimes, consolidate them into `.agents/` or a shared file and reference it from each runtime folder.
-
-### Folder Organization
-
-Rule: Flat = public, Subfolder = private
-
-- Flat files (example: `commands/draft-blog.md`) can be committed.
-- Domain-specific/private subfolders can stay gitignored.
-
-This keeps reusable structure public while allowing private voice workflows.
-
-## Creating Skills
-
-Rule: ALWAYS start from template.
-
-Use `_system/templates/TEMPLATE_SKILL.md` as base:
-1. Copy template to target skills folder (prefer `.agents/skills/<skill-name>/SKILL.md` for shared skills, or `.claude/skills/` / `.codex/skills/` for runtime-specific ones).
-2. Fill Purpose, Variables, Instructions, Workflow, Cookbook.
-3. Keep core logic runtime-agnostic. Add runtime-specific wiring only where needed.
+- Keep runtime-only artifacts in their runtime folder.
+- If duplicate instructions exist across runtimes, consolidate them into shared docs where possible.
 
 ## Skills Architecture
 
@@ -119,17 +103,18 @@ No external skill symlink setup is required.
 ## Voice System
 
 Before creating content, read:
-1. `VOICE.md` (universal voice and identity)
-2. Platform guide (example: `3-content/01-blog/VOICE_blog.md`)
+1. `VOICE.md`
+2. the relevant platform voice file if one exists
 
-Core patterns: authority via specifics, no corporate jargon, statement hooks, practitioner focus.
+Voice guidance should stay plain-language and practical.
 
-## Todoist Integration
+## Optional Enhancements
 
-- Requires Todoist project `PersonalOS` in board view
-- Sections: Backlog | Ready | In Progress | Done | Abandoned
-- `/process-backlog` handles bidirectional sync with `KANBAN.md`
-- MCP permissions are intentionally limited (find/add/delete, no direct complete)
+These are later-stage enhancements, not first-run requirements:
+- Todoist sync
+- MCP integrations
+- advanced automations
+- extra custom skills
 
 ## File Naming
 
@@ -139,25 +124,17 @@ Core patterns: authority via specifics, no corporate jargon, statement hooks, pr
 
 ## Gitignore Behavior
 
-The repo tracks structure (`.gitkeep`) but excludes most real content:
-- drafts/published content
-- personal reviews
-- client work
-- `RESUME.md`
-
-Templates and voice guides are versioned.
+The repo tracks structure and documentation, while ignoring most genuinely private or generated working content.
 
 ## Sub-Folder Documentation
 
 Each domain folder has its own `README-<folder>.md` with domain-specific instructions:
-- `3-content/README-content.md` — Content workflows, voice system, platform structure
-- `2-business/README-business.md` — Business domain
-- `1-personal/README-personal.md` — Personal reviews and knowledge
-- `_system/README-system.md` — Scripts, templates, MCP servers
-- `_internal/README-internal.md` — Internal resources
+- `3-content/README-content.md` - Content workflows and voice system
+- `2-business/README-business.md` - Business domain guidance
+- `1-personal/README-personal.md` - Personal reviews and knowledge
+- `_system/README-system.md` - Scripts, templates, and supporting tooling
 
 ## Reference
 
 Claude-specific configuration patterns (skills, agents, hooks, `CLAUDE.md` structure):
 - `_system/docs/claude-code_best-practices.md`
-es.md`

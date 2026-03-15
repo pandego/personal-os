@@ -1,125 +1,153 @@
 ---
 name: get-started
-description: Friendly guided setup workflow for Personal OS. Use when the user wants to get started, initialize Personal OS, or run first-time setup. Guides through voice configuration, Python environment setup (checking for uv), runtime layout verification, and optional Todoist MCP configuration for task and idea sync.
+description: Friendly guided onboarding for Personal OS. Use when the user wants to get started, shape the system around their life, and create a clear first blueprint for how this folder should serve them.
 ---
 
-# Personal OS Setup
+# Personal OS - Get Started
 
 Welcome message:
 
 ```
 ╔══════════════════════════════════════════════════════════════════╗
-║                     PERSONAL OS SETUP                            ║
+║                  PERSONAL OS - GET STARTED                      ║
 ╠══════════════════════════════════════════════════════════════════╣
-║  Four steps:                                                     ║
-║    1. Voice - How you sound in writing                           ║
-║    2. Python - Environment setup                                 ║
-║    3. Skills - Symlink external skills                           ║
-║    4. Todoist - Task sync (optional)                             ║
+║  Three steps:                                                   ║
+║    1. Your Intent - what this system is for                     ║
+║    2. Make It Ready - voice + optional Python setup             ║
+║    3. Your Blueprint - shape the system around your life        ║
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
 ---
 
-## Step 1: Voice Configuration
+## Step 1: Your Intent
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│  STEP 1 OF 4: YOUR VOICE                                         │
+│  STEP 1 OF 3: YOUR INTENT                                        │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-Use AskUserQuestion to gather voice info in batches. Keep questions clear and simple.
+Goal: understand what this Personal OS should actually help with.
 
-### Question Set 1: Identity
+Use AskUserQuestion in short, clear batches. Keep the language human and low-jargon.
 
-Ask: "Let's set up your writing voice. First, the basics:"
+### Question Set 1: Context
 
-Use AskUserQuestion with these questions:
-1. **"What's your name?"** (free text - user types "Other")
-2. **"What do you do?"** (free text - user types "Other")
-3. **"Who do you write for?"** Options:
-   - Engineers/developers
-   - Founders/entrepreneurs
-   - General tech audience
-   - (Other for custom)
-
-### Question Set 2: Communication Style
-
-Ask: "Now, how do you like to communicate:"
+Ask: "Let’s shape this around you first."
 
 Use AskUserQuestion with these questions:
-1. **"How direct is your writing?"** Options:
-   - Very direct - get to the point fast
-   - Balanced - some context, then the point
-   - Storytelling - build up to the insight
+1. **"What’s your name?"** (free text)
+2. **"What do you want this Personal OS to help you with most right now?"** Options:
+   - Personal organization
+   - Work and projects
+   - Writing and content
+   - Learning and knowledge
+   - A mix of several things
+   - (Other for custom)
+3. **"What feels most messy or overloaded today?"** (free text)
 
-2. **"How formal is your tone?"** Options:
-   - Professional but approachable
-   - Casual, like talking to a colleague
-   - Very casual, conversational
+### Question Set 2: Operating Style
 
-3. **"Emojis in your content?"** Options:
-   - Yes, I use them
-   - Sparingly
-   - Never
+Ask: "Now let’s make it fit how you actually work."
 
-4. **"Occasional swearing okay?"** Options:
-   - Yes
-   - No
+Use AskUserQuestion with these questions:
+1. **"Do you want this system to feel more simple or more structured?"** Options:
+   - Very simple
+   - Balanced
+   - Quite structured
+2. **"What do you want help with first?"** (multiSelect: true) Options:
+   - Capturing ideas
+   - Organizing tasks
+   - Writing better
+   - Reviewing my week
+   - Keeping notes and knowledge in order
+   - Planning projects
+   - Staying consistent
+   - (Other for custom)
+3. **"What should stay outside this system?"** (free text)
 
-5. **"What writing patterns do you want to avoid?"** (multiSelect: true) Options:
-   - Corporate jargon ("synergy", "leverage", "ecosystem")
-   - Clickbait hooks ("You won't believe...")
-   - Over-hedging ("I think maybe perhaps...")
-   - Excessive caveats and disclaimers
+### Question Set 3: Communication Style
+
+Ask: "Last part - how should your assistant sound and behave?"
+
+Use AskUserQuestion with these questions:
+1. **"How direct should the assistant be?"** Options:
+   - Very direct
+   - Balanced
+   - Gentle and encouraging
+2. **"How formal should it sound?"** Options:
+   - Professional but warm
+   - Casual and clear
+   - Very conversational
+3. **"What should it avoid?"** (multiSelect: true) Options:
+   - Corporate jargon
+   - Being too verbose
+   - Being too technical
+   - Sounding robotic
+   - Being pushy
    - (Other for custom)
 
-### Generate VOICE.md
-
-After gathering answers, read `assets/VOICE_template.md` and generate a filled-in version.
-
-Save to `/VOICE.md` (root of repo).
-
-Confirm: "Voice saved to VOICE.md"
+Keep answers for the blueprint and `VOICE.md` generation.
 
 ---
 
-## Step 2: Python Environment
+## Step 2: Make It Ready
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│  STEP 2 OF 4: PYTHON ENVIRONMENT                                 │
+│  STEP 2 OF 3: MAKE IT READY                                      │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-### Check for uv
+This step keeps the setup light and understandable.
+
+### Part A: Create `VOICE.md`
+
+Read `assets/VOICE_template.md` and generate a simple `VOICE.md` based on the communication answers from Step 1.
+
+The resulting file should be practical and plain-language, not overly literary or abstract.
+
+Save to `/VOICE.md`.
+
+Confirm: "Voice saved to VOICE.md"
+
+### Part B: Optional Python setup
+
+Tell the user, in simple language:
+
+> Some skills and helpers use Python behind the scenes.
+> We use `uv` because it keeps project tools organized and avoids making a mess of your main Python setup.
+> You can set it up now, or skip it and do it later.
+
+Run:
 
 ```bash
 which uv
 ```
 
 **If uv NOT found:**
+Show:
 
-Tell the user:
-> Personal OS uses `uv` for Python dependency management.
->
-> Install it with:
-> ```bash
-> curl -LsSf https://astral.sh/uv/install.sh | sh
-> ```
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
 
-Use AskUserQuestion: "Install uv now?"
+Use AskUserQuestion: "Do you want to install `uv` now?"
 - Yes, install it
 - Skip for now
 
-If they skip, warn them that `uv sync` commands won't work until they install it.
+If they skip, say that some advanced helpers may not work until Python tools are set up.
 
 **If uv IS found:**
+Tell the user: "Great - `uv` is already available."
 
-Tell the user: "uv found."
+Then ask:
+"Do you want to prepare the Python environment now?"
+- Yes, prepare it
+- Skip for now
 
-### Set up environment
+If yes, run:
 
 ```bash
 uv sync
@@ -127,17 +155,7 @@ uv sync
 
 Confirm: "Python environment ready."
 
----
-
-## Step 3: Skills Symlinks
-
-```
-┌──────────────────────────────────────────────────────────────────┐
-│  STEP 3 OF 4: SKILLS SYMLINKS                                    │
-└──────────────────────────────────────────────────────────────────┘
-```
-
-This step verifies the runtime layout.
+### Part C: Runtime layout check
 
 Run:
 
@@ -154,47 +172,67 @@ Confirm: "Runtime layout verified."
 
 ---
 
-## Step 4: Todoist MCP (Optional)
+## Step 3: Your Blueprint
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│  STEP 4 OF 4: TODOIST SYNC (OPTIONAL)                            │
+│  STEP 3 OF 3: YOUR BLUEPRINT                                     │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-Use AskUserQuestion: "Set up Todoist sync? This lets you capture ideas in Todoist and sync them to your local KANBAN.md file."
-- Yes, set it up
-- No, skip this
+Create a tailored blueprint file at the repo root:
 
-**If NO:** Skip to Wrap Up. Tell them they can set it up later with:
-```bash
-claude mcp add --transport http todoist https://mcp.todoist.com/sse
+- `MY_OS_BLUEPRINT.md`
+
+The file should be short, clear, and personalized.
+
+## Blueprint structure
+
+Use this structure:
+
+```md
+# My Personal OS Blueprint
+
+## What this system is for
+- ...
+
+## My current priorities
+- ...
+
+## What this system should help me do first
+- ...
+
+## Suggested focus for each domain
+### 1-personal
+- ...
+
+### 2-business
+- ...
+
+### 3-content
+- ...
+
+## Suggested changes to make next
+1. ...
+2. ...
+3. ...
+
+## What to ignore for now
+- ...
+
+## How I want my assistant to behave
+- ...
 ```
 
-**If YES:**
+Guidance:
+- tailor recommendations to the user’s answers
+- keep suggestions realistic and not overly ambitious
+- if one domain is not relevant, say so clearly instead of forcing fake structure
+- prefer a focused first version over a bloated life system
 
-Check if already configured:
-```bash
-claude mcp list | grep -i todoist
-```
-
-**If NOT found**, run:
-```bash
-claude mcp add --transport http todoist https://mcp.todoist.com/sse
-```
-
-Tell the user:
-> Todoist MCP added. Next time you start Claude Code:
-> 1. Run `/mcp` and select todoist
-> 2. Authenticate in your browser
-> 3. Create a project called **PersonalOS** in Todoist with **board view**
->
-> Then use `/process-backlog` to sync tasks.
-
-**If already configured:**
-
-Tell the user:
-> Todoist already configured. Make sure you have a **PersonalOS** project with board view in Todoist.
+After writing the file, give a short summary of:
+- what this Personal OS is mainly for
+- the top 3 recommended next actions
 
 ---
 
@@ -202,21 +240,25 @@ Tell the user:
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│  SETUP COMPLETE                                                  │
+│  GET STARTED COMPLETE                                            │
 └──────────────────────────────────────────────────────────────────┘
 
-  [x] Voice configured (VOICE.md)
-  [x] Python environment ready
-  [x] Runtime layout verified
-  [x] Todoist sync (if enabled)
+  [x] Intent clarified
+  [x] Voice captured
+  [x] Optional setup handled
+  [x] Personal blueprint created
 
   NEXT STEPS:
 
-  Before drafting content, set up platform-specific voices:
+  1. Read `MY_OS_BLUEPRINT.md`
+  2. Adjust the folder structure only if the blueprint suggests it
+  3. Start adding real material slowly - not everything at once
+```
 
-  1. Add your best posts to: 3-content/01-blog/04-my-top/
-  2. Run: /update-voice blog
-  3. Then: /draft-blog [your topic]
-```
-pic]
-```
+## Optional later enhancements
+
+Only mention these at the end, not as core steps:
+- Todoist sync via `/process-backlog`
+- custom skills
+- deeper automation
+- MCP integrations
