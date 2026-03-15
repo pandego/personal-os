@@ -253,7 +253,7 @@ Include a data summary at the end:
 ### Reviews
 - Week reviews completed: X/52
 
-*Data sourced from Todoist + KANBAN + content folders*
+*Data sourced from prior reviews, workspace material, and content folders*
 ```
 
 ---

@@ -196,5 +196,5 @@ monthly_outlook: # optional
   focus_areas: [...]
   risks: [...]
 
-sync_to_todoist: true/false
+capture_elsewhere: true/false
 ```
