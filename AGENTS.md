@@ -150,8 +150,10 @@ Each domain folder has its own `README_<name>.md` with short, user-readable inst
 - `3-content/02-linkedin/README_linkedin.md` - LinkedIn workflow
 - `3-content/_voice-examples/README_voice-examples.md` - voice example usage
 - `2-business/README_business.md` - business domain guidance
+- `2-business/02-outbound/README_outbound.md` - outbound workflow
+- `2-business/03-clients/_template/README_client-template.md` - client template guide
 - `1-personal/README_personal.md` - personal reviews and knowledge
-- `_system/README-system.md` - scripts, templates, and supporting tooling
+- `_system/README_system.md` - scripts, templates, and supporting tooling
 
 ## Reference
 
