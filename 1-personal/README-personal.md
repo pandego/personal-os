@@ -20,7 +20,7 @@ Run `/review` to invoke the unified review skill. It will:
 - Week: `01-week-reviews/02-done/YYYY-MM-DD_WXX_week-review.md`
 - Year: `02-year-reviews/02-done/YYYY_year-review.md`
 
-**Skill location:** `.claude/skills/review/`
+**Skill location:** `.codex/skills/review/` (with `.claude/` symlinked to `.codex/`)
 
 ## Knowledge
 - `03-knowledge/data-exports/` - LinkedIn exports, etc.
