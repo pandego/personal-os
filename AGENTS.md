@@ -53,8 +53,7 @@ These are the default local skills available in this Personal OS, in recommended
 | Skill | What it does |
 |-------|---------------|
 | `get-started` | first-run guided onboarding that helps the user clarify intent, set voice, optionally prepare Python tooling, and generate a tailored `MY_OS_BLUEPRINT.md` |
-| `review-week` | weekly reflection workflow using the local `review` skill and its week review path |
-| `review-year` | yearly reflection workflow using the local `review` skill and its year review path |
+| `review` | reflection skill with two entry paths: `review-week` for weekly reviews and `review-year` for yearly reviews |
 | `skill-creator` | create, improve, evaluate, and refine skills so the Personal OS can grow over time |
 | `mcp-builder` | design and build MCP servers and integrations when the user wants to extend the system with external capabilities |
 
@@ -133,6 +132,19 @@ Each domain folder has its own `README-<folder>.md` with domain-specific instruc
 - `2-business/README-business.md` - Business domain guidance
 - `1-personal/README-personal.md` - Personal reviews and knowledge
 - `_system/README-system.md` - Scripts, templates, and supporting tooling
+
+## Reference
+
+Claude-specific configuration patterns (skills, agents, hooks, `CLAUDE.md` structure):
+- `_system/docs/claude-code_best-practices.md`
+/README-personal.md` - Personal reviews and knowledge
+- `_system/README-system.md` - Scripts, templates, and supporting tooling
+
+## Reference
+
+Claude-specific configuration patterns (skills, agents, hooks, `CLAUDE.md` structure):
+- `_system/docs/claude-code_best-practices.md`
+ates, and supporting tooling
 
 ## Reference
 
