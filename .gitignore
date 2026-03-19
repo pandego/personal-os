@@ -63,23 +63,6 @@ VOICE_*.md
 .*/agents/**/*.md
 .*/commands/**/*.md
 
-# _internal skills
-_internal/
-.*/skills/blog-content/
-.*/skills/linkedin-content/
-.*/skills/brand-guidelines-datavengers/
-.*/skills/datavengers-proposal/
-
-# _external skills
-.*/skills/fork-terminal/
-.*/skills/pthd/
-.*/skills/brand-guidelines/
-.*/skills/skill-creator/
-.*/skills/docx/
-.*/skills/pptx/
-.*/skills/xlsx/
-.*/skills/pdf/
-
 # -----------------------------------------------------------------------------
 # Python - Bytecode & Cache
 # -----------------------------------------------------------------------------
