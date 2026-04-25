@@ -20,11 +20,14 @@ Run:
 /get-started
 ```
 
-This guided flow helps you:
-- clarify what you want this Personal OS to help with
-- personalize `VOICE.md` for how your assistant should sound
-- optionally prepare the Python tooling used by some skills
-- generate a `MY_OS_BLUEPRINT.md` tailored to your needs
+This guided flow:
+- asks four short questions
+- writes `memories/USER.md` (who you are) and `memories/MEMORY.md` (your setup)
+- confirms folder structure with explicit yes/no for any change
+
+Two more files are already at the repo root:
+- `SOUL.md` - the assistant's standing character (edit if you want)
+- `VOICE.md` - your writing voice. Populate later by dropping samples into `3-content/_voice-samples/` and running `/draft-content` (update voice)
 
 ## What this folder is for
 
@@ -53,9 +56,10 @@ Once the basics feel useful, you can later explore:
 
 ## Tool-Agnostic Setup
 
-This repo uses `.codex/` as the canonical runtime folder, with `.claude/` symlinked to it for compatibility.
+This repo keeps shared skills in `.agents/skills/`.
+Runtime-specific folders such as `.codex/skills` and `.claude/skills` should point to that shared folder.
 
-If you want to integrate another runtime later, point it at the same canonical commands and skills instead of duplicating configuration.
+If you want to integrate another runtime later, point it at the same shared commands and skills instead of duplicating configuration.
 
 For agent instructions, `AGENTS.md` and `CLAUDE.md` remain the project-level source of truth.
 

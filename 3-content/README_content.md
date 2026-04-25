@@ -6,7 +6,7 @@ This is where blog and LinkedIn content gets drafted and refined.
 
 - `01-blog/` - long-form writing and article workflow
 - `02-linkedin/` - LinkedIn post workflow
-- `_voice-samples/` - sample writing that helps the assistant learn how you like to sound on each platform
+- `_voice-samples/` - flat folder of sample writing in your voice (any prose; no platform split)
 - `_external/` - media or supporting assets
 
 ## Keep it simple
@@ -15,7 +15,7 @@ You do not need to over-organize this area.
 
 A good rule is:
 - put drafts in the platform draft folder
-- put useful voice samples in `_voice-samples/blog/` or `_voice-samples/linkedin/`
+- drop any prose in your voice into `_voice-samples/` (emails, posts, notes, anything)
 - use markdown files whenever possible
 
 ## Platform structure
@@ -33,18 +33,17 @@ A good rule is:
 - `02-linkedin/README_linkedin.md` - short guide for the LinkedIn area
 
 ### Voice samples
-- `_voice-samples/blog/` - blog examples in your voice or examples worth learning from
-- `_voice-samples/linkedin/` - LinkedIn examples in your voice or examples worth learning from
+- `_voice-samples/` - flat folder. Drop any prose in your voice (emails, blog posts, LinkedIn posts, notes).
 - `_voice-samples/README_voice-samples.md` - how to use this area
 
 ## How the assistant uses this
 
-Before drafting content, the assistant should read:
-1. `VOICE.md`
-2. relevant samples from `_voice-samples/<platform>/` when useful
+Before drafting content, the assistant reads:
+1. `memories/USER.md` for directness and avoid preferences
+2. `VOICE.md` at repo root for voice patterns (populated by `/draft-content` update-voice)
 
 ## Skills
-- `draft-content` - drafts content for blog or LinkedIn and can also refresh voice guidance from examples when needed
+- `draft-content` - three cookbooks: write a blog post, write a LinkedIn post, or update root `VOICE.md` from samples
 
 ## Workflow
 - Start in `01-drafts/`

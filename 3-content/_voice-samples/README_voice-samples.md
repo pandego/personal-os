@@ -1,26 +1,24 @@
 # Voice Samples
 
-This folder helps the assistant learn how you like to sound.
+This folder helps the assistant learn how you sound.
 
 ## What to put here
 
-Add markdown files that are useful samples of your writing or samples worth learning from.
+Drop any prose written in your voice. Markdown files work best, but anything readable is fine.
 
-Use:
-- `blog/` for blog-style samples
-- `linkedin/` for LinkedIn-style samples
+Useful samples include:
+- emails you wrote
+- blog posts (yours or drafts)
+- LinkedIn posts
+- newsletters
+- written messages or notes
 
-Samples can include:
-- your own published writing
-- strong drafts
-- swipe samples
-- rewritten versions you want the assistant to learn from
-
-## Keep it simple
-
-You do not need to label files as "best" or "swipe".
-If a sample is useful for voice, drop it in the right platform folder.
+There is no platform split. One folder, anything in your voice.
 
 ## How the assistant uses this
 
-The assistant can read these samples when drafting content or when shaping platform voice from real writing.
+When you run `/draft-content` and pick "update voice", the assistant reads every sample in this folder, extracts repeated patterns (openings, rhythm, vocabulary, structure, closings), and writes them to `VOICE.md` at the repo root.
+
+## Keep it simple
+
+You do not need to label files as "best" or "swipe". If a sample is in your voice, drop it in.

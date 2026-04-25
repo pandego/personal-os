@@ -22,6 +22,32 @@ Each runtime has its own config filename convention. The root instruction file f
 
 If a runtime does not support redirect syntax, keep a short local rule file that says: "Follow `AGENTS.md` in this repository as source of truth."
 
+Shared skills live in `.agents/skills/`. Runtime folders should point to that shared skill folder instead of keeping separate copies.
+
+## Always-loaded context
+
+Read these three files at the start of every session, in this order:
+
+@memories/USER.md
+@memories/MEMORY.md
+@SOUL.md
+
+| File | Scope |
+|---|---|
+| `memories/USER.md` | About the user. Their identity, story, what they want this Personal OS for, tone they prefer. |
+| `memories/MEMORY.md` | About the user's setup. Repo layout, tooling, conventions, workflows, environment notes. |
+| `SOUL.md` | About you, the assistant. Standing character, defaults, refusals, posture. |
+
+`VOICE.md` is loaded only by `/draft-content` when drafting or updating content. It is not part of the always-loaded context.
+
+### Placeholder detection
+
+If `memories/USER.md` or `memories/MEMORY.md` is missing, empty, or starts with `<!-- placeholder: get-started -->`, say once: "`memories/USER.md` (or `MEMORY.md`) is unpopulated. Run `/get-started` to personalize." Then proceed with the user's request. Do not block.
+
+If `VOICE.md` is missing or starts with `<!-- placeholder: draft-content update-voice -->`, only mention this when the user is drafting content, then continue with whatever signal you have.
+
+Do not fabricate content for these files. Only `/get-started` populates `USER.md` and `MEMORY.md`. Only `/draft-content` (update-voice cookbook) populates `VOICE.md`. `SOUL.md` ships with a default character (JARVIS-like). The user edits it directly if they want a different one.
+
 ## What This Is
 
 Personal OS is a personal AI workspace organized into three default domains:
@@ -35,11 +61,7 @@ The structure is meant to be adapted, not obeyed blindly.
 
 Use `/get-started` before pushing advanced tooling, automations, or integrations.
 
-The first-run experience should help the user:
-- clarify intent
-- define how the assistant should sound
-- decide whether to prepare optional Python tooling
-- generate a tailored `MY_OS_BLUEPRINT.md`
+`/get-started` produces exactly two files: `memories/USER.md` and `memories/MEMORY.md`. It also confirms folder structure with explicit yes/no per change. It does not create blueprint files, edit `VOICE.md` or `SOUL.md`, or touch Python.
 
 Do not force advanced integrations as part of the core first-run flow.
 
@@ -49,9 +71,9 @@ These are the default local skills available in this Personal OS, in recommended
 
 | Skill | What it does |
 |-------|---------------|
-| `get-started` | first-run guided onboarding that helps the user clarify intent, personalize voice, optionally prepare Python tooling, and generate a tailored `MY_OS_BLUEPRINT.md` |
+| `get-started` | one-time onboarding. Creates `memories/USER.md` and `memories/MEMORY.md`, confirms folder structure with explicit per-change yes/no |
 | `review` | reflection skill with two entry paths: `review-week` for weekly reviews and `review-year` for yearly reviews |
-| `draft-content` | draft content through one shared entrypoint that asks for the platform, applies the repo voice system, and can refresh platform voice guidance from examples |
+| `draft-content` | three cookbooks: `write-blog`, `write-linkedin`, `update-voice` (rewrites root `VOICE.md` from `3-content/_voice-samples/`) |
 | `skill-creator` | create, improve, evaluate, and refine skills so the Personal OS can grow over time |
 | `mcp-builder` | design and build MCP servers and integrations when the user wants to extend the system with external capabilities |
 
@@ -69,15 +91,20 @@ uv run pytest
 ```
 
 Python setup is important, but should be presented in plain language to non-technical users.
+Do not make Python setup part of the default `/get-started` flow.
 
 ## Architecture
 
 ```text
 1-personal/         # private reflection, knowledge, personal reference
 2-business/         # business systems, portfolio, outreach, clients
-3-content/          # blog and LinkedIn workflows
-.claude/            # Claude Code compatibility link to `.codex/`
-.codex/             # canonical runtime folder
+3-content/          # blog and LinkedIn workflows; flat _voice-samples/
+memories/           # USER.md (the human) + MEMORY.md (the setup)
+SOUL.md             # the assistant (root)
+VOICE.md            # the writing voice (root, owned by /draft-content)
+.claude/            # Claude Code runtime wiring (skills -> .agents/skills)
+.codex/             # Codex runtime wiring (skills -> .agents/skills)
+.agents/            # shared local skills
 _system/            # scripts, templates, and supporting tooling
 ```
 
@@ -86,11 +113,12 @@ _system/            # scripts, templates, and supporting tooling
 - Keep shared logic and policy in repo docs (`AGENTS.md`, `README-*.md`, templates, guides), not locked into one runtime folder.
 - Keep runtime-only artifacts in their runtime folder.
 - If duplicate instructions exist across runtimes, consolidate them into shared docs where possible.
-- Prefer a single canonical runtime folder over duplicated parallel setups.
+- Prefer one shared skills folder over duplicated parallel setups.
 
 ## Skills Architecture
 
-The canonical runtime folder is `.codex/`, with `.claude/` symlinked to it for compatibility.
+The shared skills folder is `.agents/skills/`.
+Runtime-specific skill folders should point there, for example `.codex/skills` and `.claude/skills`.
 
 The current local skills are:
 - `get-started`
@@ -101,15 +129,16 @@ The current local skills are:
 
 ## Voice System
 
-Before creating content, read:
-1. `VOICE.md`
-2. relevant samples from `3-content/_voice-samples/<platform>/` when useful
+The three always-loaded files (see "Always-loaded context") plus `VOICE.md` (loaded only by `/draft-content`) cover voice and personalization. There are no per-platform voice files.
 
-`VOICE.md` is the default voice contract for this repo.
+Order of precedence when drafting content:
+1. `memories/USER.md` directness and avoid preferences
+2. `VOICE.md` patterns at repo root, if populated
+3. explicit user instructions in the current request
 
-- If `VOICE.md` still contains the onboarding note, treat it as a temporary default voice and recommend running `/get-started`.
-- After `/get-started`, `VOICE.md` should be rewritten as the user's personalized voice guide.
-- Platform-level voice should come from the matching `_voice-samples` folder.
+Voice samples live flat in `3-content/_voice-samples/`. There are no per-platform subfolders. Anything written in the user's voice can go there: emails, blog posts, LinkedIn posts, notes.
+
+`VOICE.md` is owned by `/draft-content` (update-voice cookbook). Do not edit it from any other skill.
 
 Voice guidance should stay plain-language and practical.
 
@@ -134,7 +163,6 @@ These are later-stage enhancements, not first-run requirements:
 ## File Naming
 
 - Content files: `YYYY-MM-DD-slug.md`
-- Voice guides: `VOICE_<platform>.md`
 - Templates: `TEMPLATE_*.md`
 
 ## Gitignore Behavior

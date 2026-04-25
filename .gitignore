@@ -46,16 +46,22 @@ RESUME.md
 KANBAN.md
 
 # -----------------------------------------------------------------------------
+# Persistent context files (personal; populated by skills, never committed)
+# -----------------------------------------------------------------------------
+# memories/USER.md  -> populated by /get-started
+# memories/MEMORY.md -> populated by /get-started
+# VOICE.md          -> populated by /draft-content (update-voice)
+# SOUL.md is intentionally tracked: it is the assistant's defaults, not personal data.
+USER.md
+MEMORY.md
+VOICE.md
+
+# -----------------------------------------------------------------------------
 # Exceptions (keep these tracked even if they are .md)
 # -----------------------------------------------------------------------------
 !README.md
 !**/README_*.md
-
-# -----------------------------------------------------------------------------
-# Voice Files (personal writing style, not for public repo)
-# -----------------------------------------------------------------------------
-VOICE.md
-VOICE_*.md
+!SOUL.md
 
 # -----------------------------------------------------------------------------
 # Agents & Skills & Commands

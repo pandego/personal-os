@@ -11,8 +11,9 @@ Use this folder for long-form articles and blog post drafts.
 ## Voice
 
 The assistant should use:
-1. `VOICE.md`
-2. relevant samples from `../_voice-samples/blog/` when helpful
+1. `USER.md` when it exists
+2. `VOICE.md` when it exists
+3. relevant samples from `../_voice-samples/blog/` when helpful
 
 ## Keep it practical
 
