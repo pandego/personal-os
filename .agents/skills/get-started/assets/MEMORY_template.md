@@ -9,7 +9,7 @@ Operational memory for you, the assistant. Stable facts about the user's setup, 
 
 ## Tooling
 - Python: the user runs scripts via `uv run`. Use `uv` for any Python work.
-- Runtime wiring: `.claude/skills` and `.codex/skills` are symlinks to `.agents/skills/`.
+- Runtime wiring: shared skills live in `.agents/skills/`; runtime-specific skill folders should point or redirect there.
 
 ## Conventions
 - Content drafts use the filename pattern `YYYY-MM-DD-slug.md`.

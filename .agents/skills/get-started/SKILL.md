@@ -21,7 +21,9 @@ By the end:
   - Codex: `functions.request_user_input`
   - Other runtimes: the equivalent input tool
 - Never rename or remove a folder without an explicit yes from the user for that specific change.
-- Use the templates in `assets/`. Replace every `{PLACEHOLDER}` with an answer.
+- Resolve template files relative to this skill directory, not the repo root. Use the directory that contains this `SKILL.md` as `SKILL_DIR`, then read `SKILL_DIR/assets/USER_template.md` and `SKILL_DIR/assets/MEMORY_template.md`.
+- Do not hardcode machine-specific absolute paths; derive paths from the current repo root and `SKILL_DIR`.
+- Use the templates in `SKILL_DIR/assets/`. Replace every `{PLACEHOLDER}` with an answer.
 - Keep your chat output short. One sentence per step.
 
 ## Step 1: Welcome
@@ -54,7 +56,7 @@ Store the answers as: NAME, STORY, FOCUS, TONE.
 
 ## Step 3: Write `memories/USER.md`
 
-Read `assets/USER_template.md`. Replace placeholders:
+Read `SKILL_DIR/assets/USER_template.md`. Replace placeholders:
 
 - `{NAME}` -> NAME
 - `{STORY}` -> STORY
@@ -85,7 +87,7 @@ Never run `git rm` or `git mv` without an explicit yes from the user for that sp
 
 ## Step 5: Write `memories/MEMORY.md`
 
-Read `assets/MEMORY_template.md`. Replace placeholders:
+Read `SKILL_DIR/assets/MEMORY_template.md`. Replace placeholders:
 
 - `{REPO_ROOT}` -> output of `pwd`
 - `{DOMAINS}` -> the value from Step 4
