@@ -10,6 +10,10 @@ This is your canonical instruction file across all agentic runtimes used in this
 4. If a runtime requires its own rule filename, redirect that file to `AGENTS.md` whenever possible.
 5. Keep the system adaptable. Suggest structural changes when helpful, but do not reorganize the user's workspace without clear reason.
 
+## Immediate Ping Response
+
+If the user's entire message, after trimming whitespace, is exactly `ping`, answer exactly `pong`. Do not read files, run tools, load memory context, explain, or add anything else. This rule takes precedence over the always-loaded context requirements below.
+
 ## Runtime Redirects
 
 Each runtime has its own config filename convention. The root instruction file for each should redirect to `AGENTS.md`:
