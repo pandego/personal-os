@@ -198,6 +198,22 @@ These are later-stage enhancements, not first-run requirements:
 - Content files: `YYYY-MM-DD-slug.md`
 - Templates: `TEMPLATE_*.md`
 
+## Markdown Frontmatter
+
+New user-facing Markdown notes must start with Obsidian-compatible YAML frontmatter containing only `title`, `tags`, `created`, and `updated` unless the file format already requires different frontmatter. Use ISO dates. Keep tags sparse and practical. When materially editing an existing note with frontmatter, update `updated`.
+
+```markdown
+---
+title: Example Title
+tags:
+  - personal-os
+created: 2026-04-26
+updated: 2026-04-26
+---
+```
+
+This rule applies to notes such as reviews, drafts, knowledge notes, business docs, content drafts, and meeting notes. It does not apply by default to runtime instructions, `README` files, `SKILL.md` files, templates, or technical documentation unless frontmatter is useful for that specific file.
+
 ## Gitignore Behavior
 
 The repo tracks structure and documentation, while ignoring most genuinely private or generated working content.
