@@ -97,20 +97,43 @@ Write to `memories/MEMORY.md`, overwriting the placeholder.
 
 Print: `Saved memories/MEMORY.md.`
 
-## Step 6: Wrap up
+## Step 6: Set up Python (optional but recommended)
+
+Several skills (`docx`, `pdf`, `pptx`, `xlsx`, plus `_system/` scripts) need Python via `uv`.
+
+Call the question tool ONCE:
+
+- "Set up Python now? Some skills (docx, pdf, pptx, xlsx) need it." - single-select.
+  Options: `Yes, set it up`, `Skip for now`.
+
+If `Skip for now`: print one line: `Skipped Python setup. Run 'uv sync' from the repo root when you want it.` Then continue to Step 7.
+
+If `Yes, set it up`:
+
+1. Check whether `uv` is already on PATH. Run: `command -v uv || true`.
+2. If `uv` is missing, detect the OS by running `uname -s 2>/dev/null || echo Windows`:
+   - `Darwin` or `Linux`: run `curl -LsSf https://astral.sh/uv/install.sh | sh`
+   - Anything else (treat as Windows): run `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
+   - After install, the binary lives at `~/.local/bin/uv` (Mac/Linux) or `%USERPROFILE%\.local\bin\uv.exe` (Windows). Tell the user they may need to open a new shell for `uv` to be on PATH.
+3. Run `uv sync` from the repo root. This creates `.venv/` and installs runtime + dev dependencies.
+4. Print: `Python ready. Use 'uv run <cmd>' for any Python work.`
+
+Never run installer scripts without an explicit yes from the user.
+
+## Step 7: Wrap up
 
 Print this and nothing else:
 
-```    
-     ✦  ·  ✦  ·  ✦  ·  ✦                                                                                                                       
-       SYSTEMS ONLINE                   
-     ✦  ·  ✦  · ✦  ·  ✦ 
+```
+     ✦  ·  ✦  ·  ✦  ·  ✦
+       SYSTEMS ONLINE
+     ✦  ·  ✦  · ✦  ·  ✦
 
-           \ | /                                         
-            .─.                                                                                                                                    
-         ──│ ⊙ │──                                                                                                                                 
-            '─'                                
-           / | \                                                                                                                                   
+           \ | /
+            .─.
+         ──│ ⊙ │──
+            '─'
+           / | \
 
 Personal OS online. Tuned to your preferences.
 

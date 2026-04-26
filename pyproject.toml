@@ -1,7 +1,8 @@
 [project]
 name = "personal-os"
 version = "0.1.0"
-requires-python = ">=3.12"
+description = "Personal OS — runtime-agnostic AI workspace for content, business, and personal workflows."
+requires-python = ">=3.14"
 dependencies = [
     "defusedxml>=0.7.1",
     "docx>=0.2.4",
@@ -20,15 +21,16 @@ dependencies = [
 [tool.uv]
 package = true
 
-[project.scripts]
-clean = "_system.scripts.clean_all:main"
-clean-git = "_system.scripts.clean_git:main"
-clean-env = "_system.scripts.clean_env:main"
-setup-symlinks = "_system.scripts.setup_symlinks:main"
-
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "detect-secrets>=1.5.0",
+    "pre-commit>=4.6.0",
+    "ruff>=0.15.12",
+]
 
 [tool.hatch.build.targets.wheel]
 packages = ["_system"]

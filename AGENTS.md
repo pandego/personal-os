@@ -102,16 +102,24 @@ Treat `get-started` as the main entrypoint.
 
 ## Python Environment
 
-Use `uv` for Python-related commands.
+Always use `uv` for Python. Several local skills (`docx`, `pdf`, `pptx`, `xlsx`, scripts under `_system/`) depend on it.
+
+Hard rules:
+- Always run Python via `uv run …`. Never call `python` or `python3` directly.
+- Never hand-edit `[project.dependencies]` or `[dependency-groups]` in `pyproject.toml`. Use `uv add <pkg>` / `uv add --dev <pkg>` / `uv remove <pkg>`.
+- Run `uv sync` after pulling changes that touch dependencies or `.python-version`.
 
 ```bash
 uv sync
 uv run <script>
 uv run python -c "..."
 uv run pytest
+uv add <pkg>           # add a runtime dependency
+uv add --dev <pkg>     # add a dev dependency
+uv remove <pkg>
 ```
 
-Python setup is important, but present it in plain language to non-technical users. Do not make Python setup part of the default `/get-started` flow.
+The `/get-started` flow installs `uv` (if missing) and runs `uv sync`, gated by an explicit yes/no so non-technical users can opt out. Present it in plain language.
 
 ## Architecture
 
@@ -119,6 +127,7 @@ Python setup is important, but present it in plain language to non-technical use
 1-personal/         # private reflection, knowledge, personal reference
 2-business/         # business systems, portfolio, outreach, clients
 3-content/          # blog and LinkedIn workflows; flat _voice-samples/
+workspace/          # user code projects (created on first project)
 memories/           # USER.md (the user) + MEMORY.md (the setup)
 AGENTS.md           # this file (the assistant + project rules)
 VOICE.md            # the writing voice (root, owned by /draft-content)
@@ -127,6 +136,18 @@ VOICE.md            # the writing voice (root, owned by /draft-content)
 .agents/            # shared local skills
 _system/            # scripts, templates, and supporting tooling
 ```
+
+## Workspace and Tidiness
+
+Assume the user is non-technical. They will not police where files land. You must keep their Personal OS organized and prevent dev artifacts from spreading.
+
+Hard rules:
+
+- **New code projects go in `workspace/`.** When the user starts a coding project (web app, script, experiment, anything with its own dependencies), create it under `workspace/<project-name>/`. Create the `workspace/` folder on first use; do not create it pre-emptively.
+- **Personal OS-level Python scripts go in `_system/scripts/`.** Only when the script operates on the Personal OS itself: cleanup, sync, migration, maintenance. Anything project-specific belongs inside that project's `workspace/<project-name>/` folder.
+- **Personal OS-level MCP servers go in `_system/mcp-servers/`.** Same scope rule. If an MCP server is specific to one user project, it lives inside that project, not here.
+- **Contain dev artifacts.** No loose `node_modules/`, `.venv/`, `.env`, `dist/`, `build/`, or compiled output at repo root or inside domain folders (`1-personal/`, `2-business/`, `3-content/`). They live under their project's directory and must be `.gitignore`d.
+- **Confirm before introducing new top-level folders.** If a workflow seems to need one, propose it; do not add it silently.
 
 ## Runtime-Specific Folder Rules
 

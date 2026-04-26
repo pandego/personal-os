@@ -65,12 +65,20 @@ def main():
             get_friday = True
         elif arg == "--filename":
             # Output filename format
-            date = datetime.now() if not date_str else datetime.strptime(date_str, "%Y-%m-%d")
+            date = (
+                datetime.now()
+                if not date_str
+                else datetime.strptime(date_str, "%Y-%m-%d")
+            )
             print(get_review_filename(date))
             return
         elif arg == "--title":
             # Output title format
-            date = datetime.now() if not date_str else datetime.strptime(date_str, "%Y-%m-%d")
+            date = (
+                datetime.now()
+                if not date_str
+                else datetime.strptime(date_str, "%Y-%m-%d")
+            )
             print(get_review_title(date))
             return
         else:
@@ -81,7 +89,10 @@ def main():
         try:
             date = datetime.strptime(date_str, "%Y-%m-%d")
         except ValueError:
-            print(f"Error: Invalid date format '{date_str}'. Use YYYY-MM-DD.", file=sys.stderr)
+            print(
+                f"Error: Invalid date format '{date_str}'. Use YYYY-MM-DD.",
+                file=sys.stderr,
+            )
             sys.exit(1)
     else:
         date = datetime.now()
@@ -89,7 +100,9 @@ def main():
     # Get Friday if requested
     if get_friday:
         date = get_friday_of_week(date)
-        print(f"{date.strftime('%Y-%m-%d')} {format_week_number(get_week_number(date))}")
+        print(
+            f"{date.strftime('%Y-%m-%d')} {format_week_number(get_week_number(date))}"
+        )
     else:
         print(format_week_number(get_week_number(date)))
 
