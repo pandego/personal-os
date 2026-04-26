@@ -90,9 +90,8 @@ venv.bak/
 .pixi
 
 # -----------------------------------------------------------------------------
-# Python - Package Managers & Lock Files
+# Python - Package Managers
 # -----------------------------------------------------------------------------
-uv.lock
 .pdm-python
 .pdm-build/
 __pypackages__/
