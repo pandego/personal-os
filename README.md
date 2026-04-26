@@ -25,9 +25,10 @@ This guided flow:
 - writes `memories/USER.md` (who you are) and `memories/MEMORY.md` (your setup)
 - confirms folder structure with explicit yes/no for any change
 
-Two more files are already at the repo root:
-- `SOUL.md` - the assistant's standing character (edit if you want)
+One more file is already at the repo root:
 - `VOICE.md` - your writing voice. Populate later by dropping samples into `3-content/_voice-samples/` and running `/draft-content` (update voice)
+
+The assistant's character lives in `AGENTS.md` at repo root (alongside the project rules). Edit it directly if you want a different one.
 
 ## What this folder is for
 

@@ -12,7 +12,7 @@ By the end:
 - `memories/MEMORY.md` is populated with the user's setup and folder choice.
 - folder structure is confirmed.
 
-`SOUL.md` already exists at repo root with a JARVIS-like character. This skill captures the user, not the assistant. Do not edit `SOUL.md`.
+This skill captures the user, not the assistant. The assistant's character lives in `AGENTS.md` at repo root. Do not edit it from this skill.
 
 ## Rules
 

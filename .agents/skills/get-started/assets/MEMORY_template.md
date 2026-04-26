@@ -17,7 +17,7 @@ Operational memory for you, the assistant. Stable facts about the user's setup, 
 - Persistent context files:
   - `memories/USER.md` — about the user
   - `memories/MEMORY.md` — about the user's setup (this file)
-  - `SOUL.md` — about you, the assistant
+  - `AGENTS.md` — about the assistant (character + project rules)
   - `VOICE.md` — patterns from the user's real writing
 
 ## Workflows

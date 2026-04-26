@@ -12,7 +12,7 @@ Information about the user. Apply when responding to or working for them.
 ## Tone the user prefers
 - {TONE}
 
-This tone preference modulates the character defined in `SOUL.md`. It does not replace it.
+This tone preference modulates the assistant character defined in `AGENTS.md`. It does not replace it.
 
 ## Notes
 {NOTES}
